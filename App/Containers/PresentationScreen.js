@@ -20,6 +20,9 @@ class PresentationScreen extends React.Component {
     }
   }
 
+  _onPressButton() {
+    console.log("You tapped the button!");
+  }
 
 
 
@@ -33,11 +36,14 @@ class PresentationScreen extends React.Component {
           </View>
           <View style={styles.section} >
             <Text style={styles.sectionText} >
-              Showing the moves in order of Damage Per Second (DPS).
+              Shows the moves in order of Damage Per Second (DPS).
+              Click the button to get started!
             </Text>
 
-
-
+            <RoundedButton onPress={() => this.props.navigator.push(Routes.PokeListScreen)}>
+              View all available Pokémon
+            </RoundedButton>
+          </View>
         </ScrollView>
       </View>
     )

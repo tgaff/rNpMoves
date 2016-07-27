@@ -1,11 +1,15 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
+const Viewport = Dimensions.get('window');
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container: {
     marginTop: Metrics.navBarHeight,
-    flex: 1
+    flex: 1,
+    backgroundColor: Colors.snow,
+    //height: Viewport.height
+
   },
   item: {
     width: 100,

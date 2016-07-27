@@ -20,6 +20,14 @@ export default new class Routes {
     }
   }
 
+  get PokeListScreen () {
+    return {
+      title: 'Pokemon List',
+      component: require('../Containers/PokeList').default,
+      leftButton: 'BACK'
+    }
+  }
+
   get ListviewGridExample () {
     return {
       title: 'Listview Grid Example',
