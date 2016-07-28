@@ -50,16 +50,16 @@ class PokeListContainer extends React.Component {
     return <MyCustomCell title={rowData.title} description={rowData.description} />
   *************************************************************/
   _renderRow = (rowData) => {
-    var self = this;
     return (  <TouchableHighlight onPress={ () => this.handlePressButton(rowData.Id)  }>
               <Text style={styles.item}>({rowData.Id}) {rowData.Name} - {rowData.Type1}/{rowData.Type2} </Text>
             </TouchableHighlight>
           )
-    // return <Text style={styles.item}>({rowData.Id}) {rowData.Name} - {rowData.Type1}/{rowData.Type2} </Text>
   }
 
-  handlePressButton = (id) => {
+
+  handlePressButton (id) {
     window.alert(id);
+
   }
 
   /* ***********************************************************
