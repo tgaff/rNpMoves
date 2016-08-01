@@ -10,6 +10,7 @@ export default {
     //
     // Also, let's pass along the navigator as a property too.
     return React.createElement(route.component, {
+      ...route.passProps,
       navigator: navigator
     })
   },
