@@ -13,6 +13,7 @@ const types = R.keys(Fonts.type)
 // Font Styles
 const fontStyles = R.keys(Fonts.style)
 
+// FIXME: report upstream - why does ThemeScreen call itself UsageExamplesScreen
 export default class UsageExamplesScreen extends React.Component {
 
   constructor (props) {
@@ -84,4 +85,3 @@ export default class UsageExamplesScreen extends React.Component {
     )
   }
 }
-

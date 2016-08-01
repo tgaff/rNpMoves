@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
 import { View, Text, ListView, TouchableHighlight } from 'react-native'
 import { connect } from 'react-redux'
+import Routes from '../Navigation/Routes'
+
 
 // For empty lists
 import AlertMessage from '../Components/AlertMessageComponent'
@@ -33,10 +35,10 @@ class PokeListContainer extends React.Component {
 
     // DataSource configured
     const ds = new ListView.DataSource({rowHasChanged})
-
-
+    
     // Datasource is always in state
     this.state = {
+      pokemonData: pokemonData,
       dataSource: ds.cloneWithRows(pokemonData)
     }
   }
@@ -58,8 +60,12 @@ class PokeListContainer extends React.Component {
 
 
   handlePressButton (id) {
-    window.alert(id);
-
+    //window.alert(id);
+    const data = this.state.pokemonData.find(function(item) { return item.Id === id});
+    this.props.navigator.push(Routes.MoveDisplay(data));
+    // this.props.navigator.push({pokeNumber: id})
+    // const {dispatch} = this.props
+    // dispatch(Actions.displayMoves(id))
   }
 
   /* ***********************************************************

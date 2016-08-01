@@ -20,7 +20,18 @@ export default new class Routes {
     }
   }
 
+  MoveDisplay (pokeData) {
+    console.log(' Routes:MoveDisplay')
+    return {
+      title: 'Moves',
+      component: require('../Containers/MoveDisplay').default,
+      leftButton: 'BACK',
+      passProps: { data: pokeData, }
+    }
+  }
+
   get PokeListScreen () {
+    console.log(' Routes:PokeListScreen')
     return {
       title: 'Pokemon List',
       component: require('../Containers/PokeList').default,
