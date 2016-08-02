@@ -1,17 +1,21 @@
 import React from 'react'
-import { TouchableOpacity, Text } from 'react-native'
-import styles from './Styles/NavigationStyle'
+import { TouchableOpacity } from 'react-native'
+import styles from './Styles/NavItemsStyle'
+import { Actions as NavigationActions } from 'react-native-router-flux'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { Colors, Metrics } from '../Themes'
 
-// I18n
-import I18n from '../I18n/I18n.js'
+const toggleDrawer = () => {
+  NavigationActions.refresh({
+    key: 'drawer',
+    open: value => !value
+  })
+}
 
 export default {
-
-  backButton (onPressFunction) {
+  backButton () {
     return (
-      <TouchableOpacity onPress={onPressFunction}>
+      <TouchableOpacity onPress={NavigationActions.pop}>
         <Icon name='angle-left'
           size={Metrics.icons.medium}
           color={Colors.snow}
@@ -21,22 +25,14 @@ export default {
     )
   },
 
-  hamburgerButton (onPressFunction) {
+  hamburgerButton () {
     return (
-      <TouchableOpacity onPress={onPressFunction}>
+      <TouchableOpacity onPress={toggleDrawer}>
         <Icon name='bars'
           size={Metrics.icons.medium}
           color={Colors.snow}
           style={styles.navButtonLeft}
         />
-      </TouchableOpacity>
-    )
-  },
-
-  forgotPasswordButton (onPressFunction) {
-    return (
-      <TouchableOpacity onPress={onPressFunction}>
-        <Text style={styles.navButtonText}>{I18n.t('forgotPassword')}</Text>
       </TouchableOpacity>
     )
   }

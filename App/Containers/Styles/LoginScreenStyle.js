@@ -1,19 +1,19 @@
 import { StyleSheet } from 'react-native'
-import Colors from '../../Themes/Colors'
+import { Colors, Metrics } from '../../Themes'
 
 export default StyleSheet.create({
   container: {
     paddingTop: 70,
-    backgroundColor: Colors.ember
+    backgroundColor: Colors.background
   },
   form: {
     backgroundColor: Colors.snow,
-    margin: 10,
+    margin: Metrics.baseMargin,
     borderRadius: 4
   },
   row: {
-    paddingVertical: 20,
-    paddingHorizontal: 20
+    paddingVertical: Metrics.doubleBaseMargin,
+    paddingHorizontal: Metrics.doubleBaseMargin
   },
   rowLabel: {
     color: Colors.charcoal
@@ -27,8 +27,8 @@ export default StyleSheet.create({
     color: Colors.steel
   },
   loginRow: {
-    paddingBottom: 20,
-    paddingHorizontal: 20,
+    paddingBottom: Metrics.doubleBaseMargin,
+    paddingHorizontal: Metrics.doubleBaseMargin,
     flexDirection: 'row'
   },
   loginButtonWrapper: {

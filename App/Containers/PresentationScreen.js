@@ -2,8 +2,8 @@ import React, {PropTypes} from 'react'
 import { ScrollView, Text, Image, View } from 'react-native'
 import { Images } from '../Themes'
 import { connect } from 'react-redux'
-import Routes from '../Navigation/Routes'
 import RoundedButton from '../Components/RoundedButton'
+import { Actions as NavigationActions } from 'react-native-router-flux'
 
 // Styles
 import styles from './Styles/PresentationScreenStyle'
@@ -11,45 +11,14 @@ import styles from './Styles/PresentationScreenStyle'
 class PresentationScreen extends React.Component {
 
   static propTypes = {
-    navigator: PropTypes.object.isRequired
+    componentExamples: PropTypes.func,
+    usageExamples: PropTypes.func,
+    apiTesting: PropTypes.func,
+    theme: PropTypes.func,
+    deviceInfo: PropTypes.func
   }
-
-  componentWillMount () {
-    this.props.navigator.state.tapHamburger = () => {
-      this.props.navigator.drawer.toggle()
-    }
-  }
-
-  _onPressButton() {
-    console.log("You tapped the button!");
-  }
-
-
 
   render () {
-    return (
-      <View style={styles.mainContainer}>
-        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <ScrollView style={styles.container}>
-          <View style={styles.centered}>
-            <Image source={Images.clearLogo} style={styles.logo} />
-          </View>
-          <View style={styles.section} >
-            <Text style={styles.sectionText} >
-              Shows the moves in order of Damage Per Second (DPS).
-              Click the button to get started!
-            </Text>
-
-            <RoundedButton onPress={() => this.props.navigator.push(Routes.PokeListScreen)}>
-              View all available Pokémon
-            </RoundedButton>
-          </View>
-        </ScrollView>
-      </View>
-    )
-  }
-
-  renderOld () {
     return (
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
@@ -65,23 +34,23 @@ class PresentationScreen extends React.Component {
             </Text>
           </View>
 
-          <RoundedButton onPress={() => this.props.navigator.push(Routes.AllComponentsScreen)}>
+          <RoundedButton onPress={this.props.componentExamples}>
             Component Examples Screen
           </RoundedButton>
 
-          <RoundedButton onPress={() => this.props.navigator.push(Routes.UsageExamplesScreen)}>
+          <RoundedButton onPress={this.props.usageExamples}>
             Usage Examples Screen
           </RoundedButton>
 
-          <RoundedButton onPress={() => this.props.navigator.push(Routes.APITestingScreen)}>
+          <RoundedButton onPress={this.props.apiTesting}>
             API Testing Screen
           </RoundedButton>
 
-          <RoundedButton onPress={() => this.props.navigator.push(Routes.ThemeScreen)}>
+          <RoundedButton onPress={this.props.theme}>
             Theme Screen
           </RoundedButton>
 
-          <RoundedButton onPress={() => this.props.navigator.push(Routes.DeviceInfoScreen)}>
+          <RoundedButton onPress={this.props.deviceInfo}>
             Device Info Screen
           </RoundedButton>
 
@@ -100,4 +69,14 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(PresentationScreen)
+const mapDispatchToProps = () => {
+  return {
+    componentExamples: NavigationActions.componentExamples,
+    usageExamples: NavigationActions.usageExamples,
+    apiTesting: NavigationActions.apiTesting,
+    theme: NavigationActions.theme,
+    deviceInfo: NavigationActions.deviceInfo
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PresentationScreen)

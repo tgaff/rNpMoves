@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { View, Text, ListView, TouchableHighlight } from 'react-native'
 import { connect } from 'react-redux'
-import Routes from '../Navigation/Routes'
+import { Actions as NavigationActions } from 'react-native-router-flux'
 
 
 // For empty lists
@@ -11,7 +11,7 @@ import AlertMessage from '../Components/AlertMessageComponent'
 // TODO: change this
 import styles from './Styles/ListviewGridExampleStyle'
 
-class PokeListContainer extends React.Component {
+class PokeListScreen extends React.Component {
 
   constructor (props) {
     super(props)
@@ -35,7 +35,7 @@ class PokeListContainer extends React.Component {
 
     // DataSource configured
     const ds = new ListView.DataSource({rowHasChanged})
-    
+
     // Datasource is always in state
     this.state = {
       pokemonData: pokemonData,
@@ -52,8 +52,11 @@ class PokeListContainer extends React.Component {
     return <MyCustomCell title={rowData.title} description={rowData.description} />
   *************************************************************/
   _renderRow = (rowData) => {
-    return (  <TouchableHighlight onPress={ () => this.handlePressButton(rowData.Id)  }>
-              <Text style={styles.item}>({rowData.Id}) {rowData.Name} - {rowData.Type1}/{rowData.Type2} </Text>
+    return (<TouchableHighlight style={styles.row} onPress={ () => this.handlePressButton(rowData.Id)  }>
+              <View>
+                <Text style={styles.boldLabel}>({rowData.Id}) {rowData.Name}</Text>
+                <Text style={styles.label}>{rowData.Type1}/{rowData.Type2} </Text>
+              </View>
             </TouchableHighlight>
           )
   }
@@ -62,7 +65,8 @@ class PokeListContainer extends React.Component {
   handlePressButton (id) {
     //window.alert(id);
     const data = this.state.pokemonData.find(function(item) { return item.Id === id});
-    this.props.navigator.push(Routes.MoveDisplay(data));
+    this.props.moveListScreen({data: data})
+    //NavigationActions.MoveListScreen(data);
     // this.props.navigator.push({pokeNumber: id})
     // const {dispatch} = this.props
     // dispatch(Actions.displayMoves(id))
@@ -87,7 +91,6 @@ class PokeListContainer extends React.Component {
   *************************************************************/
 
   static propTypes = {
-    navigator: PropTypes.object.isRequired
   }
 
   // Used for friendly AlertMessage
@@ -98,21 +101,6 @@ class PokeListContainer extends React.Component {
 
   render () {
     return (
-
-
-                  //
-                  // <View style={{paddingTop: 22}}>
-                  //   <ListView
-                  //     dataSource={this.state.dataSource}
-                  //     renderRow={(rowData) => <Text>{rowData}</Text>}
-                  //   />
-                  // </View>
-                  //
-                  // <TouchableHighlight onPress={this._onPressButton}>
-                  //   <Text>Button</Text>
-                  // </TouchableHighlight>
-                  //
-
       <View style={styles.container}>
         <AlertMessage title='Nothing to See Here, Move Along' show={this._noRowData()} />
         <ListView
@@ -128,8 +116,20 @@ class PokeListContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+
     // ...redux state to props here
   }
 }
 
-export default connect(mapStateToProps)(PokeListContainer)
+const mapDispatchToProps = () => {
+  return {
+    componentExamples: NavigationActions.componentExamples,
+    usageExamples: NavigationActions.usageExamples,
+    apiTesting: NavigationActions.apiTesting,
+    theme: NavigationActions.theme,
+    deviceInfo: NavigationActions.deviceInfo,
+    moveListScreen: NavigationActions.moveList
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PokeListScreen)

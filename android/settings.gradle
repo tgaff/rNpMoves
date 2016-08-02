@@ -1,4 +1,4 @@
-rootProject.name = 'PokeMoves'
+rootProject.name = 'pMoves'
 
 include ':app'
 include ':react-native-vector-icons'

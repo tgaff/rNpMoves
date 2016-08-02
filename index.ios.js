@@ -12,4 +12,4 @@ class RNBase extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('PokeMoves', () => RNBase)
+AppRegistry.registerComponent('pMoves', () => RNBase)

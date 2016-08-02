@@ -1,13 +1,11 @@
 import React, { PropTypes } from 'react'
 import { ScrollView, Text, ListView, TouchableHighlight } from 'react-native'
 import { connect } from 'react-redux'
-import Actions from '../Actions/Creators'
-import Routes from '../Navigation/Routes'
 
 // Styles
-import styles from './Styles/MoveDisplayStyle'
+import styles from './Styles/MoveListStyle'
 
-class MoveDisplay extends React.Component {
+class MoveListScreen extends React.Component {
 
   constructor (props) {
     super(props)
@@ -15,6 +13,7 @@ class MoveDisplay extends React.Component {
     const rowHasChanged = (r1, r2) => r1 !== r2
     const ds = new ListView.DataSource({rowHasChanged})
     // const quickMoves = this.props.data.QuickMoves
+    console.log('proops: ', props)
     const powerMoves = this.props.data.CinematicMoves
     console.log('quick moves', this.props.data.QuickMoves)
     this.state = {
@@ -22,13 +21,13 @@ class MoveDisplay extends React.Component {
       powerMoves: ds.cloneWithRows(powerMoves)
     }
     // interesting stuff
-    console.log('routes', props.navigator.state.routeStack);
-    console.log(this.props.navigator.navigationContext.currentRoute);
+    // console.log('routes', props.navigator.state.routeStack)
+    // console.log(this.props.navigator.navigationContext.currentRoute)
     //props.number = this.props.navigator.navigationContext.currentRoute.passProps.number;
   }
 
   static propTypes = {
-    navigator: PropTypes.object.isRequired,
+  //  navigator: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired
   }
 
@@ -68,11 +67,11 @@ class MoveDisplay extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps');
-  console.log(state);
+  console.log('mapStateToProps')
+  console.log(state)
   return {
     someState: 'foo'
   }
 }
 
-export default connect(mapStateToProps)(MoveDisplay)
+export default connect(mapStateToProps)(MoveListScreen)

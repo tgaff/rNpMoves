@@ -1,22 +1,33 @@
-import { StyleSheet, Dimensions } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
-const Viewport = Dimensions.get('window');
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container: {
-    marginTop: Metrics.navBarHeight,
     flex: 1,
-    backgroundColor: Colors.snow,
-    //height: Viewport.height
-
+    marginTop: Metrics.navBarHeight,
+    backgroundColor: Colors.snow
   },
-  item: {
+  row: {
     width: 100,
-    color: Colors.snow,
-    backgroundColor: Colors.fire,
+    height: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
     margin: Metrics.baseMargin,
-    borderRadius: 5
+    backgroundColor: Colors.fire,
+    borderRadius: Metrics.smallMargin
+  },
+  boldLabel: {
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    color: Colors.snow,
+    textAlign: 'center',
+    marginBottom: Metrics.smallMargin
+  },
+  label: {
+    alignSelf: 'center',
+    color: Colors.snow,
+    textAlign: 'center'
   },
   listContent: {
     justifyContent: 'space-around',
