@@ -69,7 +69,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = () => {
   return {
     componentExamples: NavigationActions.componentExamples,
     usageExamples: NavigationActions.usageExamples,
