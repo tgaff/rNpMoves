@@ -8,9 +8,8 @@ export default StyleSheet.create({
     backgroundColor: Colors.background
   },
   text: {
-    color: Colors.silver
+    color: Colors.snow
   },
-
   item: {
     width: 100,
     color: Colors.snow,
@@ -25,3 +24,17 @@ export default StyleSheet.create({
   }
 
 })
+
+export function generateStyles(color) {
+  console.log('generates style for color:', color)
+  let style = {
+    container: // must have a key
+    {
+      flex: 1,
+      marginTop: Metrics.navBarHeight,
+      backgroundColor: Colors[color.toLowerCase()],
+      opacity: 0.5
+    }
+  }
+  return StyleSheet.create(style)
+}

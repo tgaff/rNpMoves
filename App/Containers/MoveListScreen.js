@@ -4,6 +4,10 @@ import { connect } from 'react-redux'
 import {CINEMATIC_MOVES, QUICK_MOVES} from '../Lib/MoveData'
 // Styles
 import styles from './Styles/MoveListStyle'
+import {generateStyles} from './Styles/MoveListStyle'
+
+import { StyleSheet } from 'react-native'
+
 
 class MoveListScreen extends React.Component {
 
@@ -72,9 +76,14 @@ class MoveListScreen extends React.Component {
   render () {
     //const number = this.props.navigator.navigationContext.currentRoute.passProps.number
     const data = this.props.data
+    const name = this.props.data.subdata.name
+    const type1 = this.props.data.subdata.type1
+    const type2 = this.props.data.subdata.type2
+    console.log('new style using', type1, generateStyles(type1))
+    const containerStyle = generateStyles(type1).container
     return (
-      <ScrollView style={styles.container}>
-        <Text style={styles.text}>{data.Name} is {data.Type1}</Text>
+      <ScrollView style={containerStyle}>
+        <Text style={styles.text}>{name} is a {type1}</Text>
         <Text style={styles.text}>Quick moves</Text>
         <ListView
             initialListSize={100}
