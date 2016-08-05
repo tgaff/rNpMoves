@@ -4,14 +4,14 @@ import { connect } from 'react-redux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 ///import pokemonData from '../Lib/PokemonList'
 import data from '../Lib/PokemonList'
-import { Images } from '../Themes'
+import { Images, Colors } from '../Themes'
 
 // For empty lists
 import AlertMessage from '../Components/AlertMessageComponent'
 
 // Styles
 // TODO: change this
-import styles from './Styles/ListviewGridExampleStyle'
+import styles from './Styles/PokeListStyle'
 
 class PokeListScreen extends React.Component {
 
@@ -48,9 +48,11 @@ class PokeListScreen extends React.Component {
     return <MyCustomCell title={rowData.title} description={rowData.description} />
   *************************************************************/
   _renderRow = (rowData) => {
-    return (<TouchableHighlight style={styles.row} onPress={ () => this.handlePressButton(rowData.id)  }>
+    var buttonStyle = styles[rowData.type1.toLowerCase()+"Row"]
+    console.log('style', buttonStyle, rowData.type1)
+    return (<TouchableHighlight style={buttonStyle} onPress={ () => this.handlePressButton(rowData.id)  }>
               <View>
-                <Text style={styles.boldLabel}>({rowData.id}) {rowData.name}</Text>
+                <Text style={styles.boldLabel}>({rowData.id}) {buttonStyle.backgroundColor} {rowData.name}</Text>
                 <Text style={styles.label}>{rowData.type1}/{rowData.type2} </Text>
                 <Image style={styles.backgroundImage} source={Images.pokemon[rowData.id]} />
 

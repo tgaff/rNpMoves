@@ -17,7 +17,24 @@ const colors = {
   snow: 'white',
   ember: 'rgba(164, 0, 48, 0.5)',
   fire: '#e73536',
-  drawer: 'rgba(30, 30, 29, 0.95)'
+  drawer: 'rgba(30, 30, 29, 0.95)',
+
+  water: '#31799e',
+  grass: 'rgb(48, 155, 81)',
+  bug: 'rgb(150, 193, 95)',
+  fire: 'rgb(167, 26, 19)',
+  normal: '#d0bab2',
+  poison: '#a483c5',
+  fairy: '#fba6a6',
+  ground: '#967b4b',
+  fighting: '#f3a32a',
+  electric: '#f3e320',
+  psychic: '#8845c6',
+  ice: '#54cdd4',
+  rock: '#959ca6',
+  dragon: '#a5142d',
+  ghost: '#524a69',
+  flying: '#a1d8e6' // unused?
 }
 
 export default colors
