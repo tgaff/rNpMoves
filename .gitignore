@@ -1,3 +1,8 @@
+
+# hold off on images for now
+App/Images/characters/**
+
+
 # OSX
 #
 .DS_Store
