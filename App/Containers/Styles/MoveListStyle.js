@@ -14,16 +14,20 @@ export default StyleSheet.create({
     color: Colors.snow
   },
   item: {
-    width: 100,
+    //width: 100,
     color: Colors.snow,
-    backgroundColor: Colors.fire,
+    //backgroundColor: Colors.fire,
     margin: Metrics.baseMargin,
-    borderRadius: 5
+    //borderRadius: 5
   },
   listContent: {
-    justifyContent: 'space-around',
-    flexDirection: 'row',
-    flexWrap: 'wrap'
+    // justifyContent: 'space-around',
+    // flexDirection: 'column',
+    // flexWrap: 'wrap',
+    flex: 1,
+    marginTop: Metrics.baseMargin,
+    marginBottom: 0,
+    borderRadius: 20
   },
   monOverview: {
     flex: 1,

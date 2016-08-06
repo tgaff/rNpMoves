@@ -68,7 +68,7 @@ class MoveListScreen extends React.Component {
   _renderRow = (rowData) => {
     console.log('row', rowData)
     return (  <TouchableHighlight onPress={ () => console.log('clicked')  }>
-              <Text style={styles.item}>({rowData.name} - {rowData.dps})</Text>
+              <Text selectable={true} style={styles.item}>({rowData.name} - {rowData.dps})</Text>
             </TouchableHighlight>
           )
   }
