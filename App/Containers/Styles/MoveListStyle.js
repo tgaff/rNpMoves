@@ -13,12 +13,14 @@ export default StyleSheet.create({
   text: {
     color: Colors.snow
   },
-  item: {
-    //width: 100,
+  col:{
+    flex: 1,
     color: Colors.snow,
-    //backgroundColor: Colors.fire,
-    margin: Metrics.baseMargin,
-    //borderRadius: 5
+
+  },
+  row: {
+    flexDirection: 'row',
+    margin: Metrics.baseMargin
   },
   listContent: {
     // justifyContent: 'space-around',
@@ -27,10 +29,12 @@ export default StyleSheet.create({
     flex: 1,
     marginTop: Metrics.baseMargin,
     marginBottom: 0,
-    borderRadius: 20
+    borderRadius: 20,
+    borderColor: '#ffffff',
+    borderWidth: 2,
   },
   monOverview: {
-    flex: 1,
+    //flex: 1,
     borderTopWidth: 0,
     //height: 100,
     padding: 5,
@@ -69,6 +73,7 @@ export function generateStyles(color) {
       flex: 1,
       marginTop: Metrics.navBarHeight,
       backgroundColor: Colors[color.toLowerCase()],
+    //  alignItems: 'stretch'
     }
   }
   return StyleSheet.create(style)

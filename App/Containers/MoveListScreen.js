@@ -65,11 +65,26 @@ class MoveListScreen extends React.Component {
   }
 
 
+  // _renderRow = (rowData) => {
+  //   console.log('row', rowData)
+  //   return (
+  //     <View style={{justifyContent: 'space-around', flexDirection: 'row'}}>
+  //       <Text selectable={true} style={styles.item}>{rowData.name}</Text>
+  //       <Text selectable={true} style={styles.item}>{rowData.dps}</Text>
+  //       <Text selectable={true} style={styles.item}>{rowData.dps}</Text>
+  //
+  //     </View>
+  //         )
+  // }
+
   _renderRow = (rowData) => {
     console.log('row', rowData)
-    return (  <TouchableHighlight onPress={ () => console.log('clicked')  }>
-              <Text selectable={true} style={styles.item}>({rowData.name} - {rowData.dps})</Text>
-            </TouchableHighlight>
+    return (
+      <View style={styles.row}>
+        <Text selectable={true} style={styles.col}>{rowData.name}</Text>
+        <Text selectable={true} style={styles.col}>{rowData.dps}</Text>
+        <Text selectable={true} style={styles.col}>{rowData.dps}</Text>
+      </View>
           )
   }
 
@@ -101,21 +116,26 @@ class MoveListScreen extends React.Component {
 
         </View>
 
-        <Text style={styles.text}>Quick moves</Text>
-        <ListView
-            initialListSize={100}
-            contentContainerStyle={styles.listContent}
-            dataSource={this.state.myMoves.quickMoves}
-            renderRow={this._renderRow}
-        />
-        <Text style={styles.text}>Power moves</Text>
-        <ListView
-            initialListSize={100}
-            contentContainerStyle={styles.listContent}
-            dataSource={this.state.myMoves.powerMoves}
-            renderRow={this._renderRow}
-        />
 
+
+
+
+        <View>
+          <Text style={styles.text}>Quick moves</Text>
+          <ListView
+              initialListSize={100}
+              contentContainerStyle={styles.listContent}
+              dataSource={this.state.myMoves.quickMoves}
+              renderRow={this._renderRow}
+          />
+          <Text style={styles.text}>Power moves</Text>
+          <ListView
+              initialListSize={100}
+              contentContainerStyle={styles.listContent}
+              dataSource={this.state.myMoves.powerMoves}
+              renderRow={this._renderRow}
+          />
+        </View>
       </ScrollView>
     )
   }
