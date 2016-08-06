@@ -19,6 +19,16 @@ const ApplicationStyles = {
       bottom: 0,
       right: 0
     },
+    inlineImage: {
+      position: 'relative',
+      margin: 0,
+      // marginTop: 5,
+      // top: 2,
+      // borderWidth: 0,
+      // borderRadius: 0,
+
+    },
+
     container: {
       flex: 1,
       paddingTop: Metrics.baseMargin
@@ -30,6 +40,13 @@ const ApplicationStyles = {
       borderTopWidth: 0.5,
       borderBottomColor: Colors.frost,
       borderBottomWidth: 1
+    },
+    sectionHeader: {
+      color: Colors.snow,
+      marginVertical: Metrics.smallMargin,
+      textAlign: 'left',
+      fontWeight: 'bold',
+      fontSize: Fonts.size.h4
     },
     sectionText: {
       color: Colors.snow,

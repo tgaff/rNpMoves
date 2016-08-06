@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react'
-import { ScrollView, Text, ListView, TouchableHighlight } from 'react-native'
+import { ScrollView, Text, ListView, TouchableHighlight, View, Image } from 'react-native'
 import { connect } from 'react-redux'
 import {CINEMATIC_MOVES, QUICK_MOVES} from '../Lib/MoveData'
 // Styles
 import styles from './Styles/MoveListStyle'
 import {generateStyles} from './Styles/MoveListStyle'
 
+import { Images } from '../Themes'
 import { StyleSheet } from 'react-native'
 
 
@@ -77,13 +78,29 @@ class MoveListScreen extends React.Component {
     //const number = this.props.navigator.navigationContext.currentRoute.passProps.number
     const data = this.props.data
     const name = this.props.data.subdata.name
+    const id = this.props.data.subdata.id
     const type1 = this.props.data.subdata.type1
     const type2 = this.props.data.subdata.type2
     console.log('new style using', type1, generateStyles(type1))
     const containerStyle = generateStyles(type1).container
     return (
       <ScrollView style={containerStyle}>
-        <Text style={styles.text}>{name} is a {type1}</Text>
+        <View style={[styles.section, styles.monOverview]}>
+
+          <View>
+            <Image style={[styles.inlineImage, styles.monImage]} source={Images.pokemon[id]} />
+          </View>
+
+          <View style={{ flex: 1}}>
+            <Text style={styles.sectionHeader} selectable={true}>{name}</Text>
+            <View style={ styles.monTypeView }>
+              <Text style={styles.monTypeText} selectable={true}>{type1}</Text>
+              <Text style={styles.monTypeText} selectable={true}>{type2}</Text>
+            </View>
+          </View>
+
+        </View>
+
         <Text style={styles.text}>Quick moves</Text>
         <ListView
             initialListSize={100}

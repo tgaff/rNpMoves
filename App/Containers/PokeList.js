@@ -10,7 +10,6 @@ import { Images, Colors } from '../Themes'
 import AlertMessage from '../Components/AlertMessageComponent'
 
 // Styles
-// TODO: change this
 import styles from './Styles/PokeListStyle'
 
 class PokeListScreen extends React.Component {
@@ -51,12 +50,10 @@ class PokeListScreen extends React.Component {
     var buttonStyle = styles[rowData.type1.toLowerCase()+"Row"]
     console.log('style', buttonStyle, rowData.type1)
     return (<TouchableHighlight style={buttonStyle} onPress={ () => this.handlePressButton(rowData.id)  }>
-              <View>
-                <Text style={styles.boldLabel}>({rowData.id}) {buttonStyle.backgroundColor} {rowData.name}</Text>
-                <Text style={styles.label}>{rowData.type1}/{rowData.type2} </Text>
-                <Image style={styles.backgroundImage} source={Images.pokemon[rowData.id]} />
-
-              </View>
+                <Image source={Images.pokemon[rowData.id]} style={[styles.backgroundImage]}>
+                  <Text style={styles.boldLabel}>({rowData.id}) {rowData.name}</Text>
+                  <Text style={styles.label}>{rowData.type1}/{rowData.type2} </Text>
+                </Image>
             </TouchableHighlight>
           )
   }
