@@ -29,7 +29,6 @@ class MoveListScreen extends React.Component {
         return item.name.toLowerCase() == move.name.toLowerCase()
       })
     })
-    //myQuickMoveInfo = [...new Set(myQuickMoveInfo)] // FIXME why aren't moves already unique?
 
     console.log('I have powermoves: ',this.props.data.subdata.quickMoves)
     myPowerMoveInfo = this.props.data.subdata.powerMoves.map(function(move) {
@@ -38,21 +37,13 @@ class MoveListScreen extends React.Component {
         return item.name.toLowerCase() == move.name.toLowerCase()
       })
     })
-    //myPowerMoveInfo = [...new Set(myPowerMoveInfo)] // FIXME why aren't moves already unique?
 
-
-    // console.log('quick moves', this.props.data.QuickMoves)
-    // Datasource is always in state
     const rowHasChanged = (r1, r2) => r1 !== r2
     const ds = new ListView.DataSource({rowHasChanged})
-    console.log(dupmoves)
-    //this.state.myQuickMoveInfo = myQuickMoveInfo
-    this.props.myQuickMoveInfo = dupmoves
     this.state = {
       myMoves: {
-        myQuickMoveInfo: dupmoves,
-        quickMoves: ds.cloneWithRows(dupmoves),
-        powerMoves: ds.cloneWithRows(myPowerMoveInfo)
+        quickMoves: myQuickMoveInfo,
+        powerMoves: myPowerMoveInfo
       }
     }
 
@@ -78,16 +69,7 @@ class MoveListScreen extends React.Component {
           )
   }
 
-  _renderRows =  (rows) => {
-    //rows = []
-    //
-    // [this.props.data.subdata.powerMoves, this.props.data.subdata.quickMoves].forEach((moveSet) => {
-    //
-    //   moveSet.forEach( (move) => {
-    //     rows.push(move)
-    //   })
-    // })
-
+  _renderTable =  (rows) => {
     return rows.map( (row)=> {
       console.log("render row", row)
 
@@ -137,44 +119,27 @@ class MoveListScreen extends React.Component {
 
 
 
+          <Text style={styles.tableLabel}>Quick moves</Text>
 
-
-          <Text style={styles.text}>Quick moves</Text>
-          <View>{this._renderRows(this.state.myMoves.myQuickMoveInfo)}
+          <View>
+            {this._renderHeader()}
+            {this._renderTable(this.state.myMoves.quickMoves)}
           </View>
-          <Text style={styles.text}>Power moves</Text>
-          <View>{this._renderRows(this.state.myMoves.myQuickMoveInfo)}
+          <Text style={styles.tableLabel}>Power moves</Text>
+          <View>
+            {this._renderHeader()}
+            {this._renderTable(this.state.myMoves.powerMoves)}
           </View>
         </ScrollView>
     )
   }
 }
 
-//
-// <ListView
-//     initialListSize={100}
-//     contentContainerStyle={styles.listContent}
-//     dataSource={this.state.myMoves.quickMoves}
-//     renderRow={this._renderRow}
-//     renderHeader={this._renderHeader}
-//     initialListSize={6}
-// />
-
 // map state passed through as part of state
 const mapStateToProps = (state) => {
   console.log('mapStateToProps')
   console.log(state)
-  // const myMoves = {
-  //   powerMoves: this.props.data.CinematicMoves,
-  //   quickMoves: this.props.data.QuickMoves
-  // }
   return { }
-  //   allMoves: {
-  //     powerMoves: CINEMATIC_MOVES,
-  //     quickMoves: QUICK_MOVES,
-  //   },
-  //   myMoves: myMoves
-  // }
 }
 
 export default connect(mapStateToProps)(MoveListScreen)

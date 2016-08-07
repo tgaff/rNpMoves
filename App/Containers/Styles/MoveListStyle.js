@@ -40,8 +40,16 @@ export default StyleSheet.create({
     // borderColor: '#ffffff',
     // borderWidth: 2,
   },
+  tableLabel: {
+    padding: 5,
+    textAlign: 'center',
+    color: Colors.coal,
+    textAlignVertical: 'center',
+    backgroundColor: Colors.snow,
+    justifyContent: 'space-around',
+
+  },
   monOverview: {
-    //flex: 1,
     borderTopWidth: 0,
     //height: 100,
     padding: 5,
@@ -60,14 +68,13 @@ export default StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: Colors.snow,
     justifyContent: 'space-around',
-
-
   },
   monTypeText: {
     padding: 5,
     textAlign: 'center',
     color: Colors.coal,
-    textAlignVertical: 'center'
+    textAlignVertical: 'center',
+    borderWidth: 1
   }
 
 })
