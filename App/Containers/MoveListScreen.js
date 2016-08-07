@@ -45,10 +45,13 @@ class MoveListScreen extends React.Component {
     // Datasource is always in state
     const rowHasChanged = (r1, r2) => r1 !== r2
     const ds = new ListView.DataSource({rowHasChanged})
-
+    console.log(dupmoves)
+    //this.state.myQuickMoveInfo = myQuickMoveInfo
+    this.props.myQuickMoveInfo = dupmoves
     this.state = {
       myMoves: {
-        quickMoves: ds.cloneWithRows(myQuickMoveInfo),
+        myQuickMoveInfo: dupmoves,
+        quickMoves: ds.cloneWithRows(dupmoves),
         powerMoves: ds.cloneWithRows(myPowerMoveInfo)
       }
     }
@@ -64,25 +67,40 @@ class MoveListScreen extends React.Component {
     data: PropTypes.object.isRequired
   }
 
+  _renderHeader = () => {
+    return (
+      <View style={[styles.row, {margin: 2}]}>
+        <Text selectable={true} style={[styles.header, {flex: 2, marginLeft: 8}]}>Attack</Text>
+        <Text selectable={true} style={styles.header}>Damage</Text>
+        <Text selectable={true} style={styles.header}>DPS</Text>
+        <Text selectable={true} style={styles.header}>Speed</Text>
+      </View>
+          )
+  }
 
-  // _renderRow = (rowData) => {
-  //   console.log('row', rowData)
-  //   return (
-  //     <View style={{justifyContent: 'space-around', flexDirection: 'row'}}>
-  //       <Text selectable={true} style={styles.item}>{rowData.name}</Text>
-  //       <Text selectable={true} style={styles.item}>{rowData.dps}</Text>
-  //       <Text selectable={true} style={styles.item}>{rowData.dps}</Text>
-  //
-  //     </View>
-  //         )
-  // }
+  _renderRows =  (rows) => {
+    //rows = []
+    //
+    // [this.props.data.subdata.powerMoves, this.props.data.subdata.quickMoves].forEach((moveSet) => {
+    //
+    //   moveSet.forEach( (move) => {
+    //     rows.push(move)
+    //   })
+    // })
 
+    return rows.map( (row)=> {
+      console.log("render row", row)
+
+      return this._renderRow(row)
+    })
+  }
   _renderRow = (rowData) => {
     console.log('row', rowData)
     return (
       <View style={styles.row}>
-        <Text selectable={true} style={styles.col}>{rowData.name}</Text>
+        <Text selectable={true} style={[styles.col, {flex: 2}]}>{rowData.name}</Text>
         <Text selectable={true} style={styles.col}>{rowData.dps}</Text>
+        <Text selectable={true} style={styles.col}>{rowData.damage}</Text>
         <Text selectable={true} style={styles.col}>{rowData.dps}</Text>
       </View>
           )
@@ -96,6 +114,7 @@ class MoveListScreen extends React.Component {
     const id = this.props.data.subdata.id
     const type1 = this.props.data.subdata.type1
     const type2 = this.props.data.subdata.type2
+
     console.log('new style using', type1, generateStyles(type1))
     const containerStyle = generateStyles(type1).container
     return (
@@ -120,26 +139,26 @@ class MoveListScreen extends React.Component {
 
 
 
-        <View>
           <Text style={styles.text}>Quick moves</Text>
-          <ListView
-              initialListSize={100}
-              contentContainerStyle={styles.listContent}
-              dataSource={this.state.myMoves.quickMoves}
-              renderRow={this._renderRow}
-          />
+          <View>{this._renderRows(this.state.myMoves.myQuickMoveInfo)}
+          </View>
           <Text style={styles.text}>Power moves</Text>
-          <ListView
-              initialListSize={100}
-              contentContainerStyle={styles.listContent}
-              dataSource={this.state.myMoves.powerMoves}
-              renderRow={this._renderRow}
-          />
-        </View>
-      </ScrollView>
+          <View>{this._renderRows(this.state.myMoves.myQuickMoveInfo)}
+          </View>
+        </ScrollView>
     )
   }
 }
+
+//
+// <ListView
+//     initialListSize={100}
+//     contentContainerStyle={styles.listContent}
+//     dataSource={this.state.myMoves.quickMoves}
+//     renderRow={this._renderRow}
+//     renderHeader={this._renderHeader}
+//     initialListSize={6}
+// />
 
 // map state passed through as part of state
 const mapStateToProps = (state) => {

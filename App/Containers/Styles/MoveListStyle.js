@@ -11,12 +11,19 @@ export default StyleSheet.create({
     backgroundColor: Colors.background
   },
   text: {
-    color: Colors.snow
+    color: Colors.snow,
+    margin: Metrics.baseMargin
+
+  },
+  header: {
+    fontSize: 8.5,
+    flex: 1,
+    color: Colors.snow,
+
   },
   col:{
     flex: 1,
     color: Colors.snow,
-
   },
   row: {
     flexDirection: 'row',
@@ -26,12 +33,12 @@ export default StyleSheet.create({
     // justifyContent: 'space-around',
     // flexDirection: 'column',
     // flexWrap: 'wrap',
-    flex: 1,
+    //flex: 1,
     marginTop: Metrics.baseMargin,
-    marginBottom: 0,
-    borderRadius: 20,
-    borderColor: '#ffffff',
-    borderWidth: 2,
+    margin: Metrics.baseMargin,
+    // borderRadius: 20,
+    // borderColor: '#ffffff',
+    // borderWidth: 2,
   },
   monOverview: {
     //flex: 1,
@@ -73,6 +80,8 @@ export function generateStyles(color) {
       flex: 1,
       marginTop: Metrics.navBarHeight,
       backgroundColor: Colors[color.toLowerCase()],
+      //paddingTop: Metrics.baseMargin
+
     //  alignItems: 'stretch'
     }
   }
