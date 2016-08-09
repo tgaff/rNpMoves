@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { ApplicationStyles, Metrics, Colors } from '../../Themes/'
 
-styles = {
+const styles = {
   ...ApplicationStyles.screen,
   container: {
     flex: 1,
@@ -19,9 +19,11 @@ styles = {
   },
   boldLabel: {
     fontWeight: 'bold',
-    alignSelf: 'center',
+//    alignSelf: 'center',
     color: Colors.snow,
+    top: 78,
     textAlign: 'center',
+    textAlignVertical: 'center',
     marginBottom: Metrics.smallMargin
   },
   label: {
@@ -33,7 +35,9 @@ styles = {
     justifyContent: 'space-around',
     flexDirection: 'row',
     flexWrap: 'wrap'
-  }
+  },
+  buttomImage: {
+   }
 }
 
 // Generate specific row styles for each 'type'
