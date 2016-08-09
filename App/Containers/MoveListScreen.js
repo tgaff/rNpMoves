@@ -58,6 +58,10 @@ class MoveListScreen extends React.Component {
     data: PropTypes.object.isRequired
   }
 
+  _sortMoves (moves) {
+
+  }
+
   _renderHeader = () => {
     return (
       <View style={[styles.row, {margin: 2}]}>
@@ -78,7 +82,7 @@ class MoveListScreen extends React.Component {
   _renderRow = (rowData) => {
     console.log('row', rowData)
     return (
-      <View style={styles.row}>
+      <View key={rowData.id} style={styles.row}>
         <Text selectable={true} style={[styles.col, {flex: 2}]}>{rowData.name}</Text>
         <Text selectable={true} style={styles.col}>{rowData.dps}</Text>
         <Text selectable={true} style={styles.col}>{rowData.damage}</Text>
