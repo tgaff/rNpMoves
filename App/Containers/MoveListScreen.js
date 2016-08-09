@@ -29,6 +29,7 @@ class MoveListScreen extends React.Component {
         return item.name.toLowerCase() == move.name.toLowerCase()
       })
     })
+    myQuickMoveInfo = this._sortMovesByDPS(myQuickMoveInfo)
 
     console.log('I have powermoves: ',this.props.data.subdata.quickMoves)
     myPowerMoveInfo = this.props.data.subdata.powerMoves.map(function(move) {
@@ -37,15 +38,16 @@ class MoveListScreen extends React.Component {
         return item.name.toLowerCase() == move.name.toLowerCase()
       })
     })
+    myPowerMoveInfo = this._sortMovesByDPS(myPowerMoveInfo)
 
-    const rowHasChanged = (r1, r2) => r1 !== r2
-    const ds = new ListView.DataSource({rowHasChanged})
     this.state = {
       myMoves: {
         quickMoves: myQuickMoveInfo,
         powerMoves: myPowerMoveInfo
       }
     }
+    debugger
+
 
     // interesting stuff
     // console.log('routes', props.navigator.state.routeStack)
@@ -58,8 +60,13 @@ class MoveListScreen extends React.Component {
     data: PropTypes.object.isRequired
   }
 
-  _sortMoves (moves) {
-
+  _sortMovesByDPS (moves) {
+    // sorts in reverse (e.g. highest first)
+    return moves.sort( (left, right) => {
+      if (left.dps < right.dps) { return 1 }
+      if (right.dps < left.dps) { return -1 }
+      return 0
+    })
   }
 
   _renderHeader = () => {
@@ -84,8 +91,8 @@ class MoveListScreen extends React.Component {
     return (
       <View key={rowData.id} style={styles.row}>
         <Text selectable={true} style={[styles.col, {flex: 2}]}>{rowData.name}</Text>
-        <Text selectable={true} style={styles.col}>{rowData.dps}</Text>
         <Text selectable={true} style={styles.col}>{rowData.damage}</Text>
+        <Text selectable={true} style={styles.col}>{rowData.dps}</Text>
       </View>
           )
   }
