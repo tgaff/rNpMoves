@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { ScrollView, Text, ListView, TouchableHighlight, View, Image } from 'react-native'
 import { connect } from 'react-redux'
-import {CINEMATIC_MOVES, QUICK_MOVES} from '../Lib/MoveData'
+import * as MoveModel from '../Lib/MoveData'
 // Styles
 import styles from './Styles/MoveListStyle'
 import {generateStyles} from './Styles/MoveListStyle'
@@ -14,51 +14,13 @@ class MoveListScreen extends React.Component {
 
   constructor (props) {
     super(props)
-
-    // const quickMoves = this.props.data.QuickMoves
-    console.log('props: ', props)
-
-    const allMoves = {
-      powerMoves: CINEMATIC_MOVES,
-      quickMoves: QUICK_MOVES
-    }
-    console.log('I have quickmoves: ',this.props.data.subdata.quickMoves)
-    myQuickMoveInfo = this.props.data.subdata.quickMoves.map(function(move) {
-      return allMoves.quickMoves.find(function(item) {
-        console.log('compare item.name:', item.name, ' with move: ', move)
-        return item.name.toLowerCase() == move.name.toLowerCase()
-      })
-    })
-    myQuickMoveInfo = this._sortMovesByDPS(myQuickMoveInfo)
-
-    console.log('I have powermoves: ',this.props.data.subdata.quickMoves)
-    myPowerMoveInfo = this.props.data.subdata.powerMoves.map(function(move) {
-      return allMoves.powerMoves.find(function(item) {
-        console.log('compare item.name:', item.name, ' with move: ', move)
-        return item.name.toLowerCase() == move.name.toLowerCase()
-      })
-    })
-    myPowerMoveInfo = this._sortMovesByDPS(myPowerMoveInfo)
-
-    this.state = {
-      myMoves: {
-        quickMoves: myQuickMoveInfo,
-        powerMoves: myPowerMoveInfo
-      }
-    }
-    debugger
-
-
-    // interesting stuff
-    // console.log('routes', props.navigator.state.routeStack)
-    // console.log(this.props.navigator.navigationContext.currentRoute)
-    //props.number = this.props.navigator.navigationContext.currentRoute.passProps.number;
   }
 
   static propTypes = {
   //  navigator: PropTypes.object.isRequired,
     data: PropTypes.object.isRequired
   }
+
 
   _sortMovesByDPS (moves) {
     // sorts in reverse (e.g. highest first)
@@ -97,6 +59,26 @@ class MoveListScreen extends React.Component {
           )
   }
 
+  _findMonMoves () {
+    console.log('I have quickmoves: ',this.props.data.subdata.quickMoves)
+    myQuickMoveInfo = this.props.data.subdata.quickMoves.map(function(move) {
+      return MoveModel.lookupQuickMoveInfoByName(move.name)
+    })
+    myQuickMoveInfo = this._sortMovesByDPS(myQuickMoveInfo)
+
+    console.log('I have powermoves: ',this.props.data.subdata.quickMoves)
+    myPowerMoveInfo = this.props.data.subdata.powerMoves.map(function(move) {
+      return MoveModel.lookupPowerMoveInfoByName(move.name)
+
+    })
+    myPowerMoveInfo = this._sortMovesByDPS(myPowerMoveInfo)
+
+    return { quickMoves: myQuickMoveInfo, powerMoves: myPowerMoveInfo}
+  }
+
+  componentWillUnmount() {
+    console.log('unmount! why sometimes only?!')
+  }
 
   render () {
     //const number = this.props.navigator.navigationContext.currentRoute.passProps.number
@@ -105,6 +87,9 @@ class MoveListScreen extends React.Component {
     const id = this.props.data.subdata.id
     const type1 = this.props.data.subdata.type1
     const type2 = this.props.data.subdata.type2
+
+    const moves = this._findMonMoves()
+
 
     console.log('new style using', type1, generateStyles(type1))
     const containerStyle = generateStyles(type1).container
@@ -132,12 +117,12 @@ class MoveListScreen extends React.Component {
 
           <View>
             {this._renderHeader()}
-            {this._renderTable(this.state.myMoves.quickMoves)}
+            {this._renderTable(moves.quickMoves)}
           </View>
           <Text style={styles.tableLabel}>Power moves</Text>
           <View>
             {this._renderHeader()}
-            {this._renderTable(this.state.myMoves.powerMoves)}
+            {this._renderTable(moves.powerMoves)}
           </View>
         </ScrollView>
     )
@@ -148,6 +133,7 @@ class MoveListScreen extends React.Component {
 const mapStateToProps = (state) => {
   console.log('mapStateToProps')
   console.log(state)
+
   return { }
 }
 

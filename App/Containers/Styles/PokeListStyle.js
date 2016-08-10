@@ -37,14 +37,14 @@ const styles = {
     flexWrap: 'wrap'
   },
   buttomImage: {
-   }
+    //FIXME: move the currently hard-coded style into here
+  }
 }
 
 // Generate specific row styles for each 'type'
 colorStyles = {  }
 colors = 'water grass bug fire normal poison fairy ground fighting electric\
           psychic ice rock ghost dragon flying'.split(' ')
-console.log(colors)
 
 colors.forEach((color) => {
   let newColorStyle = Object.assign({}, styles.row)

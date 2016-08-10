@@ -870,3 +870,15 @@ export const CINEMATIC_MOVES = [
     ,"damage":20
     ,"dps":5.3
   }]
+
+
+function lookupMoveInfoByName(moveName, moveSet) {
+  moveName = moveName.toLowerCase()
+  return moveSet.find( (item) => {
+    // console.log('compare item.name:', item.name, ' with move: ', moveName)
+    let name = item.name.toLowerCase()
+    return name === moveName
+  })
+}
+export function lookupQuickMoveInfoByName(moveName) { return lookupMoveInfoByName(moveName, QUICK_MOVES)}
+export function lookupPowerMoveInfoByName(moveName) { return lookupMoveInfoByName(moveName, CINEMATIC_MOVES)}
