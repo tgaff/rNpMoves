@@ -62,8 +62,6 @@ class PokeListScreen extends React.Component {
 
 
   handlePressButton (id) {
-    //window.alert(id);
-
     const data = this.state.pokemonData.find(function(item) { return item.id === id});
 
     this.props.moveListScreen({data: {subdata: data} })

@@ -12,29 +12,30 @@ const toggleDrawer = () => {
   })
 }
 
+// FIXME: DOA?
 export default {
-  backButton () {
-    return (
-      <TouchableOpacity onPress={NavigationActions.pop}>
-        <Icon name='angle-left'
-          size={Metrics.icons.medium}
-          color={Colors.snow}
-          style={styles.navButtonLeft}
-        />
-      </TouchableOpacity>
-    )
-  },
-
-  hamburgerButton () {
-    return (
-      <TouchableOpacity onPress={toggleDrawer}>
-        <Icon name='bars'
-          size={Metrics.icons.medium}
-          color={Colors.snow}
-          style={styles.navButtonLeft}
-        />
-      </TouchableOpacity>
-    )
-  }
+  // backButton () {
+  //   return (
+  //     <TouchableOpacity onPress={NavigationActions.pop}>
+  //       <Icon name='angle-left'
+  //         size={Metrics.icons.medium}
+  //         color={Colors.coal}
+  //         style={styles.navButtonLeft}
+  //       />
+  //     </TouchableOpacity>
+  //   )
+  // },
+  //
+  // hamburgerButton () {
+  //   return (
+  //     <TouchableOpacity onPress={toggleDrawer}>
+  //       <Icon name='bars'
+  //         size={Metrics.icons.medium}
+  //         color={Colors.coal}
+  //         style={styles.navButtonLeft}
+  //       />
+  //     </TouchableOpacity>
+  //   )
+  // }
 
 }
