@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { ScrollView, Text, ListView, TouchableHighlight, View, Image } from 'react-native'
+import { ScrollView, Text, ListView, TouchableHighlight, TouchableOpacity, View, Image } from 'react-native'
 import { connect } from 'react-redux'
 import * as MoveModel from '../Lib/MoveData'
 // Styles
@@ -31,12 +31,38 @@ class MoveListScreen extends React.Component {
     })
   }
 
+  help = {
+    attackName: () => { window.alert(
+      `The name of this attack or move.
+      `
+      + `Try to choose Pokemon that have the best moves.`
+    )},
+    damage: () => { window.alert(
+      `The total damage that this attack does.`
+      +`\n\nMany Quick Moves are quite fast and can therefore be fired again quite quickly.`
+      +`If two Quick Moves are similarly fast choosing the one with the most total damage can be effective.`
+      +`\n\nFor Power Moves, duration varies a lot.  Choose the one with the highest DPS.
+      `
+    )},
+    dps: () => { window.alert(
+      `D.P.S. stands for Damage Per Second.`
+      +`\n\nSince many attacks take less than or more than 1 second, we can use DPS to better compare moves of different durations and damages.`
+      +`\n\nIn general, try to choose Pokemon with attacks that have the highest DPS.  `
+      +`This will help you maximize every second of battle!`
+    )}
+  }
   _renderHeader = () => {
     return (
       <View style={[styles.row, {margin: 2}]}>
-        <Text selectable={true} style={[styles.header, {flex: 2, marginLeft: 8}]}>Attack</Text>
-        <Text selectable={true} style={styles.header}>Damage</Text>
-        <Text selectable={true} style={styles.header}>DPS</Text>
+        <TouchableOpacity style={[styles.header, {flex: 2, marginLeft: 8}]} onPress={this.help.attackName}>
+          <Text selectable={true} style={[styles.header, {flex: 2, marginLeft: 8}]}>Attack name</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.header, {flex: 2, marginLeft: 8}]} onPress={this.help.damage}>
+          <Text selectable={true} style={styles.header}>Damage</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.header, {flex: 2, marginLeft: 8}]} onPress={this.help.dps}>
+          <Text selectable={true} style={styles.header}>DPS</Text>
+        </TouchableOpacity>
       </View>
           )
   }
