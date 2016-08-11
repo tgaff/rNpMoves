@@ -33,20 +33,19 @@ class MoveListScreen extends React.Component {
 
   help = {
     attackName: () => { window.alert(
-      `The name of this attack or move.
-      `
+      `The name of this attack or move.\n\n`
       + `Try to choose Pokemon that have the best moves.`
     )},
     damage: () => { window.alert(
       `The total damage that this attack does.`
-      +`\n\nMany Quick Moves are quite fast and can therefore be fired again quite quickly.`
-      +`If two Quick Moves are similarly fast choosing the one with the most total damage can be effective.`
+      +`\n\nMany Quick Moves are quite fast and can be fired very quickly in succession.  `
+      +`If two Quick Moves are similarly fast, choose the one with the highest total damage.`
       +`\n\nFor Power Moves, duration varies a lot.  Choose the one with the highest DPS.
       `
     )},
     dps: () => { window.alert(
       `D.P.S. stands for Damage Per Second.`
-      +`\n\nSince many attacks take less than or more than 1 second, we can use DPS to better compare moves of different durations and damages.`
+      +`\n\nSince each attack takes a specific amount of time, we can use DPS to better compare moves of different durations and damages.`
       +`\n\nIn general, try to choose Pokemon with attacks that have the highest DPS.  `
       +`This will help you maximize every second of battle!`
     )}
@@ -54,14 +53,14 @@ class MoveListScreen extends React.Component {
   _renderHeader = () => {
     return (
       <View style={[styles.row, {margin: 2}]}>
-        <TouchableOpacity style={[styles.header, {flex: 2, marginLeft: 8}]} onPress={this.help.attackName}>
-          <Text selectable={true} style={[styles.header, {flex: 2, marginLeft: 8}]}>Attack name</Text>
+        <TouchableOpacity style={[styles.headerButton, {flex: 2}]} onPress={this.help.attackName}>
+          <Text selectable={true} style={[styles.headerText, {flex: 2, marginLeft: 8}]}>Attack name</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.header, {flex: 2, marginLeft: 8}]} onPress={this.help.damage}>
-          <Text selectable={true} style={styles.header}>Damage</Text>
+        <TouchableOpacity style={[styles.headerButton]} onPress={this.help.damage}>
+          <Text selectable={true} style={styles.headerText}>Damage</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.header, {flex: 2, marginLeft: 8}]} onPress={this.help.dps}>
-          <Text selectable={true} style={styles.header}>DPS</Text>
+        <TouchableOpacity style={[styles.headerButton]} onPress={this.help.dps}>
+          <Text selectable={true} style={styles.headerText}>DPS</Text>
         </TouchableOpacity>
       </View>
           )
