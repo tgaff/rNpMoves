@@ -12,8 +12,9 @@ const toggleDrawer = () => {
   })
 }
 
-// FIXME: DOA?
 export default {
+  // FIXME: DOA? these don't seem to be in use really
+
   // backButton () {
   //   return (
   //     <TouchableOpacity onPress={NavigationActions.pop}>
