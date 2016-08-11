@@ -16,10 +16,10 @@ export default StyleSheet.create({
 
   },
   header: {
-    fontSize: 8.5,
+    fontSize: 9,
     flex: 1,
     color: Colors.snow,
-
+    textAlignVertical: 'bottom' // doesn't seem to have any effect
   },
   col:{
     flex: 1,
@@ -27,7 +27,7 @@ export default StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    margin: Metrics.baseMargin
+    margin: Metrics.baseMargin,
   },
   listContent: {
     // justifyContent: 'space-around',
