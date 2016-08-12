@@ -17,6 +17,7 @@ import ThemeScreen from '../Containers/ThemeScreen'
 import DeviceInfoScreen from '../Containers/DeviceInfoScreen'
 import MoveListScreen from '../Containers/MoveListScreen'
 import PokeListScreen from '../Containers/PokeList'
+import MovesHelpScreen from '../Containers/MovesHelpScreen'
 
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux
@@ -39,6 +40,7 @@ class NavigationRouter extends Component {
             <Scene key='theme' component={ThemeScreen} title='Theme' />
             <Scene key='deviceInfo' component={DeviceInfoScreen} title='Device Info' />
             <Scene key='moveList' component={MoveListScreen} title='Available Moves' type={ActionConst.PUSH} />
+            <Scene key='movesHelp' component={MovesHelpScreen} title='Help' type={ActionConst.PUSH} />
             <Scene initial key='pokeList' component={PokeListScreen} title='Pokemon List' />
           </Scene>
         </Scene>

@@ -47,6 +47,12 @@ class DrawerContent extends Component {
     NavigationActions.pokeList()
   }
 
+
+  handlePressHelp = () => {
+    this.toggleDrawer()
+    NavigationActions.movesHelp()
+  }
+
   // render () {
   //   return (
   //     <ScrollView style={styles.container}>
@@ -70,6 +76,7 @@ class DrawerContent extends Component {
       <ScrollView style={styles.container}>
         <Image source={monImage} style={styles.logo} />
         <DrawerButton text='All Pokemon' onPress={this.handlePressPokeList} />
+        <DrawerButton text='Help' onPress={this.handlePressHelp} />
       </ScrollView>
     )
   }
