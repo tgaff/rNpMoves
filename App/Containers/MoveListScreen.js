@@ -37,6 +37,7 @@ class MoveListScreen extends React.Component {
         <Text selectable={true} style={[styles.header, {flex: 2, marginLeft: 8}]}>Attack</Text>
         <Text selectable={true} style={styles.header}>Damage</Text>
         <Text selectable={true} style={styles.header}>DPS</Text>
+        <Text selectable={true} style={styles.header}>Duration (sec)</Text>
       </View>
           )
   }
@@ -55,6 +56,7 @@ class MoveListScreen extends React.Component {
         <Text selectable={true} style={[styles.col, {flex: 2}]}>{rowData.name}</Text>
         <Text selectable={true} style={styles.col}>{rowData.damage}</Text>
         <Text selectable={true} style={styles.col}>{rowData.dps}</Text>
+        <Text selectable={true} style={styles.col}>{Math.floor(100* rowData.damage/rowData.dps, 2)/100}</Text>
       </View>
           )
   }
