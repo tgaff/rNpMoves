@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Scene, Router, ActionConst } from 'react-native-router-flux'
+import { Scene, Router, ActionConst, Actions as NavigationActions } from 'react-native-router-flux'
 import Styles from './Styles/NavigationContainerStyle'
 import NavigationDrawer from './NavigationDrawer'
 import NavItems from './NavItems'
@@ -17,6 +17,7 @@ import ThemeScreen from '../Containers/ThemeScreen'
 import DeviceInfoScreen from '../Containers/DeviceInfoScreen'
 import MoveListScreen from '../Containers/MoveListScreen'
 import PokeListScreen from '../Containers/PokeList'
+import MovesHelpScreen from '../Containers/MovesHelpScreen'
 
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux
@@ -38,7 +39,12 @@ class NavigationRouter extends Component {
             <Scene key='apiTesting' component={APITestingScreen} title='API Testing' />
             <Scene key='theme' component={ThemeScreen} title='Theme' />
             <Scene key='deviceInfo' component={DeviceInfoScreen} title='Device Info' />
-            <Scene key='moveList' component={MoveListScreen} title='Available Moves' type={ActionConst.PUSH} />
+            <Scene key='moveList' component={MoveListScreen} title='Available Moves' type={ActionConst.PUSH}
+                    leftButtonIconStyle={Styles.leftButton} rightButtonStyle={Styles.rightButton}
+                    rightButtonTextStyle={Styles.rightButtonTextStyle} rightTitle='?' 
+                    onRight={ () => {NavigationActions.movesHelp()}} />
+            <Scene key='movesHelp' component={MovesHelpScreen} title='Help' />
+
             <Scene initial key='pokeList' component={PokeListScreen} title='Pokemon List' />
           </Scene>
         </Scene>

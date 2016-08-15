@@ -15,9 +15,11 @@ export default StyleSheet.create({
     margin: Metrics.baseMargin
 
   },
-  header: {
-    fontSize: 9,
+  headerButton: {
     flex: 1,
+  },
+  headerText: {
+    fontSize: 9,
     color: Colors.snow,
     textAlignVertical: 'bottom' // doesn't seem to have any effect
   },

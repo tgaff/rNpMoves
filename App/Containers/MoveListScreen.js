@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react'
-import { ScrollView, Text, ListView, TouchableHighlight, View, Image } from 'react-native'
+import { ScrollView, Text, ListView, TouchableHighlight, TouchableOpacity, View, Image } from 'react-native'
 import { connect } from 'react-redux'
 import * as MoveModel from '../Lib/MoveData'
+import HelpModal from '../Components/HelpModal'
 // Styles
 import styles from './Styles/MoveListStyle'
 import {generateStyles} from './Styles/MoveListStyle'
@@ -14,6 +15,14 @@ class MoveListScreen extends React.Component {
 
   constructor (props) {
     super(props)
+    this.state = {
+      openModal: false,
+      modal: {
+        body: '',
+        title: ''
+      }
+
+    }
   }
 
   static propTypes = {
@@ -31,13 +40,47 @@ class MoveListScreen extends React.Component {
     })
   }
 
+  help = {
+    attackName: () => {
+      let message =
+      `The name of this attack or move.\n\n`
+      + `Try to choose Pokemon that have the best moves.`
+      this._openHelpModal({body: message, title: 'Help: Move Name'})
+    },
+    damage: () => {
+      let message =
+      `The total damage that this attack does.`
+      +`\n\nMany Quick Moves are quite fast and can be fired very quickly in succession.  `
+      +`If two Quick Moves are similarly fast, choose the one with the highest total damage.`
+      +`\n\nFor Power Moves, duration varies a lot.  Choose the one with the highest DPS.
+      `
+      this._openHelpModal({body: message, title: 'Help: Damage'})
+    },
+    dps: () => {
+      let message =
+      `D.P.S. stands for Damage Per Second.`
+      +`\n\nSince each attack takes a specific amount of time, we can use DPS to better compare moves of different durations and damages.`
+      +`\n\nIn general, try to choose Pokemon with attacks that have the highest DPS.  `
+      +`This will help you maximize every second of battle!`
+
+      this._openHelpModal({body: message, title: 'Help: DPS'})
+
+    }
+  }
   _renderHeader = () => {
     return (
       <View style={[styles.row, {margin: 2}]}>
-        <Text selectable={true} style={[styles.header, {flex: 2, marginLeft: 8}]}>Attack</Text>
-        <Text selectable={true} style={styles.header}>Damage</Text>
-        <Text selectable={true} style={styles.header}>DPS</Text>
-        <Text selectable={true} style={styles.header}>Duration (sec)</Text>
+        <TouchableOpacity style={[styles.headerButton, {flex: 2}]} onPress={this.help.attackName}>
+          <Text selectable={true} style={[styles.headerText, {flex: 2, marginLeft: 8}]}>Attack name</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.headerButton]} onPress={this.help.damage}>
+          <Text selectable={true} style={styles.headerText}>Damage</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.headerButton]} onPress={this.help.dps}>
+          <Text selectable={true} style={styles.headerText}>DPS</Text>
+        </TouchableOpacity>
+
+        <Text selectable={true} style={styles.headerText}>Duration (sec)</Text>
       </View>
           )
   }
@@ -81,6 +124,16 @@ class MoveListScreen extends React.Component {
   componentWillUnmount() {
     console.log('unmount! why sometimes only?!')
   }
+
+
+    _closeModal = () => {
+      this.setState({openModal: null});
+    }
+
+    _openHelpModal = (obj) => {
+      this.setState({modal: obj})
+      this.setState({openModal: true})
+    }
 
   render () {
     //const number = this.props.navigator.navigationContext.currentRoute.passProps.number
@@ -126,6 +179,12 @@ class MoveListScreen extends React.Component {
             {this._renderHeader()}
             {this._renderTable(moves.powerMoves)}
           </View>
+
+
+          <HelpModal  title={this.state.modal.title}
+                      body={this.state.modal.body}
+                      visible={this.state.openModal}/>
+
         </ScrollView>
     )
   }
