@@ -30,7 +30,9 @@ const colors = {
   fairy: '#fba6a6',
   ground: '#967b4b',
   fighting: '#f3a32a',
-  electric: '#f3e320',
+  // electric: '#f3e320', // original - but too bright
+  electric: '#efd620',
+  // electric: 'rgb(50, 50, 50)', // a dark alternative
   psychic: '#8845c6',
   ice: '#54cdd4',
   rock: '#959ca6',
