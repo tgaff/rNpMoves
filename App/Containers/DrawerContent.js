@@ -89,6 +89,9 @@ class DrawerContent extends Component {
           Pokémon Go is Copyright Niantic, Inc. Pokémon, the Pokémon names, and the Pokémon images are trademarks of Nintendo.
           This app Copyright ©2016 Circinus.
           </Text>
+          <Text style={styles.copyright}>
+            Data for this app is also available at <Text style={styles.link}>bulbapedia.bulbagarden.net</Text>  See more there and help to maintain the Bulbapedia!
+          </Text>
         </View>
       </ScrollView>
     )

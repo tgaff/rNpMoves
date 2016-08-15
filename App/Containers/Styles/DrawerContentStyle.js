@@ -15,4 +15,7 @@ export default {
   copyright: {
     fontSize: Fonts.size.tiny
   },
+  link: {
+    color: 'blue'
+  }
 }
