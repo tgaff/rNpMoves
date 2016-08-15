@@ -65,7 +65,20 @@ class MoveListScreen extends React.Component {
 
       this._openHelpModal({body: message, title: 'Help: DPS'})
 
+    },
+    duration: () => {
+      let message =
+      `Duration in Seconds`
+      +`\n\nThis tells the total amount of time an attack takes.`
+      +`Damage in an attack is caused over this amount of time, not instantly.`
+
+      this._openHelpModal({body: message, title: 'Help: Duration'})
+
     }
+
+
+
+
   }
   _renderHeader = () => {
     return (
@@ -79,10 +92,11 @@ class MoveListScreen extends React.Component {
         <TouchableOpacity style={[styles.headerButton]} onPress={this.help.dps}>
           <Text selectable={true} style={styles.headerText}>DPS</Text>
         </TouchableOpacity>
-
-        <Text selectable={true} style={styles.headerText}>Duration (sec)</Text>
+        <TouchableOpacity style={[styles.headerButton]} onPress={this.help.duration}>
+          <Text selectable={true} style={styles.headerText}>Seconds</Text>
+        </TouchableOpacity>
       </View>
-          )
+    )
   }
 
   _renderTable =  (rows) => {
