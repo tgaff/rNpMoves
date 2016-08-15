@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { ScrollView, Image } from 'react-native'
+import { ScrollView, Image, View, Text } from 'react-native'
 import styles from './Styles/DrawerContentStyle'
 import { Images } from '../Themes'
 import DrawerButton from '../Components/DrawerButton'
@@ -70,18 +70,29 @@ class DrawerContent extends Component {
     // get a random image to render as the logo
     //const monImage = Images.pokemon[Math.floor(Math.random() * (152 - 1) + 1)]
     const monImage = Images.pokemon[this.state.monImageId]
+    // FIXME: bad?  mutating state
     this.state.monImageId = this.state.monImageId + 1 || 1
-    //const monImage = Images.pokemon[2]
+    if (this.state.monImageId > 151) { this.state.monImageId = 1 }
+
     return (
-      <ScrollView style={styles.container}>
-        <Image source={monImage} style={styles.logo} />
-        <DrawerButton text='All Pokemon' onPress={this.handlePressPokeList} />
-        <DrawerButton text='Help' onPress={this.handlePressHelp} />
+      <ScrollView style={[styles.container]} contentContainerStyle={styles.internalContainer}>
+        <View >
+          <Image source={monImage} style={styles.logo} />
+          <DrawerButton text='Pokemon Moves' onPress={this.handlePressPokeList} />
+          <DrawerButton text='Help' onPress={this.handlePressHelp} />
+        </View>
+        <View >
+          <Text style={styles.copyright}>
+            Version 0.6.0
+          </Text>
+          <Text style={styles.copyright}>
+          Pokémon Go is Copyright Niantic, Inc. Pokémon, the Pokémon names, and the Pokémon images are trademarks of Nintendo.
+          This app Copyright ©2016 Circinus.
+          </Text>
+        </View>
       </ScrollView>
     )
   }
-
-
 }
 
 DrawerContent.propTypes = {

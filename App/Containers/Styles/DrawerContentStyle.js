@@ -1,9 +1,18 @@
+import { Fonts } from '../../Themes'
+
 export default {
-  container: {
+  internalContainer: {
+    justifyContent: 'space-between',
     flex: 1,
-    padding: 20
+    flexDirection: 'column',
+  },
+  container: {
+    padding: 15,
   },
   logo: {
     alignSelf: 'center'
-  }
+  },
+  copyright: {
+    fontSize: Fonts.size.tiny
+  },
 }
