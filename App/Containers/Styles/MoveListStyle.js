@@ -17,12 +17,24 @@ export default StyleSheet.create({
   },
   headerButton: {
     flex: 1,
+
   },
   headerText: {
     fontSize: 9,
     color: Colors.snow,
-    textAlignVertical: 'bottom' // doesn't seem to have any effect
+    textAlignVertical: 'bottom', // doesn't seem to have any effect
+    textAlign: 'left',
+    margin: 0,
+    borderWidth: 0,
+
   },
+  headerRow: {
+    flexDirection: 'row',
+    margin: Metrics.baseMargin,
+    marginBottom: 0,
+    marginTop: 2
+  },
+
   col:{
     flex: 1,
     color: Colors.snow,

@@ -53,7 +53,7 @@ class MoveListScreen extends React.Component {
       +`\n\nMany Quick Moves are quite fast and can be fired very quickly in succession.  `
       +`If two Quick Moves are similarly fast, choose the one with the highest total damage.`
       +`\n\nFor Power Moves, duration varies a lot.  Choose the one with the highest DPS.
-      `
+      +\n Note: that actual damage done is also modified by a number of other factors.`
       this._openHelpModal({body: message, title: 'Help: Damage'})
     },
     dps: () => {
@@ -69,7 +69,7 @@ class MoveListScreen extends React.Component {
     duration: () => {
       let message =
       `Duration in Seconds`
-      +`\n\nThis tells the total amount of time an attack takes.`
+      +`\n\nThis is the total amount of time an attack takes.  `
       +`Damage in an attack is caused over this amount of time, not instantly.`
 
       this._openHelpModal({body: message, title: 'Help: Duration'})
@@ -82,18 +82,18 @@ class MoveListScreen extends React.Component {
   }
   _renderHeader = () => {
     return (
-      <View style={[styles.row, {margin: 2}]}>
+      <View style={[styles.headerRow]}>
         <TouchableOpacity style={[styles.headerButton, {flex: 2}]} onPress={this.help.attackName}>
-          <Text selectable={true} style={[styles.headerText, {flex: 2, marginLeft: 8}]}>Attack name</Text>
+          <Text selectable={true} style={[styles.headerText, ]}>ATTACK NAME</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.headerButton]} onPress={this.help.damage}>
-          <Text selectable={true} style={styles.headerText}>Damage</Text>
+          <Text selectable={true} style={styles.headerText}>DAMAGE</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.headerButton]} onPress={this.help.dps}>
           <Text selectable={true} style={styles.headerText}>DPS</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.headerButton]} onPress={this.help.duration}>
-          <Text selectable={true} style={styles.headerText}>Seconds</Text>
+          <Text selectable={true} style={styles.headerText}>DURATION</Text>
         </TouchableOpacity>
       </View>
     )

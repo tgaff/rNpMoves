@@ -10,7 +10,8 @@ export default {
   body: {
     ...Fonts.style.regular,
     color: Colors.coal,
-    margin: Metrics.baseMargin
+    margin: Metrics.baseMargin,
+    textAlign: 'justify'
   },
   view: {
     marginTop: 40,
