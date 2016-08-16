@@ -2,6 +2,24 @@ apply plugin: "com.android.application"
 
 import com.android.build.OutputFile
 
+
+/* added 20160816 - setting up release build and using OSX password keychain
+ * https://pilloxa.gitlab.io/posts/safer-passwords-in-gradle/
+ */
+def getPassword(String currentUser, String keyChain) {
+   def stdout = new ByteArrayOutputStream()
+   def stderr = new ByteArrayOutputStream()
+   exec {
+       commandLine 'security', '-q', 'find-generic-password', '-a', currentUser, '-s', keyChain, '-w'
+       standardOutput = stdout
+       errorOutput = stderr
+       ignoreExitValue true
+   }
+   //noinspection GroovyAssignabilityCheck
+      stdout.toString().trim()
+}
+
+
 /**
  * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
  * and bundleReleaseJsAndAssets).
@@ -82,6 +100,10 @@ def enableSeparateBuildPerCPUArchitecture = false
  */
 def enableProguardInReleaseBuilds = false
 
+
+def pass = getPassword("travis","android_keystore_pMoves")
+
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -99,9 +121,9 @@ android {
     signingConfigs {
         release {
             storeFile file(MYAPP_RELEASE_STORE_FILE)
-            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            storePassword pass
             keyAlias MYAPP_RELEASE_KEY_ALIAS
-            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            keyPassword pass
         }
     }
     splits {
