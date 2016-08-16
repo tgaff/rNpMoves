@@ -1,1 +1,1 @@
-pushd android/app && ./gradlew installRelease && popd
+pushd android && ./gradlew installRelease && popd
