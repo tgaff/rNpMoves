@@ -45,7 +45,7 @@ class MovesHelpScreen extends React.Component {
         </Text>
         <Text style={styles.h6}>-  to keep:</Text>
         <Text style={styles.normal}>
-        When choosing which pokemon to keep the order or things to consider is:
+        When choosing which pokemon to keep, the order of things to consider is:
         </Text>
         <Text style={styles.li}>
           1) Moves - choose moves that do the maximum damage in the shortest time. (DPS)
@@ -59,7 +59,7 @@ class MovesHelpScreen extends React.Component {
         <Text style={styles.li}> </Text>
         <Text style={styles.li}>
           Note: Level is not as important in determining whether to keep a mon.  Why?
-          If you have a great mon, with the best moves, and good IVs it's worth it to use candy to power it up!
+          If you have a great mon, with the best moves, and good IVs it's probably worth it to use your candy to power it up!
         </Text>
 
         <Text style={styles.h6}>-  for battle:</Text>
