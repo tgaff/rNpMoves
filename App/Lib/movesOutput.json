@@ -1,0 +1,1239 @@
+{
+  "quickMoves": {
+    "fury cutter": {
+      "name": "Fury Cutter",
+      "class": "Quick",
+      "damage": 3,
+      "dps": 7.5,
+      "duration": 0.4,
+      "type": "bug",
+      "id": 200
+    },
+    "bug bite": {
+      "name": "Bug Bite",
+      "class": "Quick",
+      "damage": 5,
+      "dps": 11.11111,
+      "duration": 0.45,
+      "type": "bug",
+      "id": 201
+    },
+    "bite": {
+      "name": "Bite",
+      "class": "Quick",
+      "damage": 6,
+      "dps": 12,
+      "duration": 0.5,
+      "type": "dark",
+      "id": 202
+    },
+    "sucker punch": {
+      "name": "Sucker Punch",
+      "class": "Quick",
+      "damage": 7,
+      "dps": 10,
+      "duration": 0.7,
+      "type": "dark",
+      "id": 203
+    },
+    "dragon breath": {
+      "name": "Dragon Breath",
+      "class": "Quick",
+      "damage": 6,
+      "dps": 12,
+      "duration": 0.5,
+      "type": "dragon",
+      "id": 204
+    },
+    "thunder shock": {
+      "name": "Thunder Shock",
+      "class": "Quick",
+      "damage": 5,
+      "dps": 8.33333,
+      "duration": 0.6,
+      "type": "electric",
+      "id": 205
+    },
+    "spark": {
+      "name": "Spark",
+      "class": "Quick",
+      "damage": 7,
+      "dps": 10,
+      "duration": 0.7,
+      "type": "electric",
+      "id": 206
+    },
+    "low kick": {
+      "name": "Low Kick",
+      "class": "Quick",
+      "damage": 5,
+      "dps": 8.33333,
+      "duration": 0.6,
+      "type": "fighting",
+      "id": 207
+    },
+    "karate chop": {
+      "name": "Karate Chop",
+      "class": "Quick",
+      "damage": 6,
+      "dps": 7.5,
+      "duration": 0.8,
+      "type": "fighting",
+      "id": 208
+    },
+    "ember": {
+      "name": "Ember",
+      "class": "Quick",
+      "damage": 10,
+      "dps": 9.5238,
+      "duration": 1.05,
+      "type": "fire",
+      "id": 209
+    },
+    "wing attack": {
+      "name": "Wing Attack",
+      "class": "Quick",
+      "damage": 9,
+      "dps": 12,
+      "duration": 0.75,
+      "type": "flying",
+      "id": 210
+    },
+    "peck": {
+      "name": "Peck",
+      "class": "Quick",
+      "damage": 10,
+      "dps": 8.69565,
+      "duration": 1.15,
+      "type": "flying",
+      "id": 211
+    },
+    "lick": {
+      "name": "Lick",
+      "class": "Quick",
+      "damage": 5,
+      "dps": 10,
+      "duration": 0.5,
+      "type": "ghost",
+      "id": 212
+    },
+    "shadow claw": {
+      "name": "Shadow Claw",
+      "class": "Quick",
+      "damage": 11,
+      "dps": 11.57894,
+      "duration": 0.95,
+      "type": "ghost",
+      "id": 213
+    },
+    "vine whip": {
+      "name": "Vine Whip",
+      "class": "Quick",
+      "damage": 7,
+      "dps": 10.76923,
+      "duration": 0.65,
+      "type": "grass",
+      "id": 214
+    },
+    "razor leaf": {
+      "name": "Razor Leaf",
+      "class": "Quick",
+      "damage": 15,
+      "dps": 10.34482,
+      "duration": 1.45,
+      "type": "grass",
+      "id": 215
+    },
+    "mud shot": {
+      "name": "Mud Shot",
+      "class": "Quick",
+      "damage": 6,
+      "dps": 10.90909,
+      "duration": 0.55,
+      "type": "ground",
+      "id": 216
+    },
+    "ice shard": {
+      "name": "Ice Shard",
+      "class": "Quick",
+      "damage": 15,
+      "dps": 10.71428,
+      "duration": 1.4,
+      "type": "ice",
+      "id": 217
+    },
+    "frost breath": {
+      "name": "Frost Breath",
+      "class": "Quick",
+      "damage": 9,
+      "dps": 11.11111,
+      "duration": 0.81,
+      "type": "ice",
+      "id": 218
+    },
+    "quick attack": {
+      "name": "Quick Attack",
+      "class": "Quick",
+      "damage": 10,
+      "dps": 7.51879,
+      "duration": 1.33,
+      "type": "normal",
+      "id": 219
+    },
+    "scratch": {
+      "name": "Scratch",
+      "class": "Quick",
+      "damage": 6,
+      "dps": 12,
+      "duration": 0.5,
+      "type": "normal",
+      "id": 220
+    },
+    "tackle": {
+      "name": "Tackle",
+      "class": "Quick",
+      "damage": 12,
+      "dps": 10.90909,
+      "duration": 1.1,
+      "type": "normal",
+      "id": 221
+    },
+    "pound": {
+      "name": "Pound",
+      "class": "Quick",
+      "damage": 7,
+      "dps": 12.96296,
+      "duration": 0.54,
+      "type": "normal",
+      "id": 222
+    },
+    "cut": {
+      "name": "Cut",
+      "class": "Quick",
+      "damage": 12,
+      "dps": 10.61946,
+      "duration": 1.13,
+      "type": "normal",
+      "id": 223
+    },
+    "poison jab": {
+      "name": "Poison Jab",
+      "class": "Quick",
+      "damage": 12,
+      "dps": 11.42857,
+      "duration": 1.05,
+      "type": "poison",
+      "id": 224
+    },
+    "acid": {
+      "name": "Acid",
+      "class": "Quick",
+      "damage": 10,
+      "dps": 9.5238,
+      "duration": 1.05,
+      "type": "poison",
+      "id": 225
+    },
+    "psycho cut": {
+      "name": "Psycho Cut",
+      "class": "Quick",
+      "damage": 7,
+      "dps": 12.2807,
+      "duration": 0.57,
+      "type": "psychic",
+      "id": 226
+    },
+    "rock throw": {
+      "name": "Rock Throw",
+      "class": "Quick",
+      "damage": 12,
+      "dps": 8.82352,
+      "duration": 1.36,
+      "type": "rock",
+      "id": 227
+    },
+    "metal claw": {
+      "name": "Metal Claw",
+      "class": "Quick",
+      "damage": 8,
+      "dps": 12.69841,
+      "duration": 0.63,
+      "type": "steel",
+      "id": 228
+    },
+    "bullet punch": {
+      "name": "Bullet Punch",
+      "class": "Quick",
+      "damage": 10,
+      "dps": 8.33333,
+      "duration": 1.2,
+      "type": "steel",
+      "id": 229
+    },
+    "water gun": {
+      "name": "Water Gun",
+      "class": "Quick",
+      "damage": 6,
+      "dps": 12,
+      "duration": 0.5,
+      "type": "water",
+      "id": 230
+    },
+    "splash": {
+      "name": "Splash",
+      "class": "Quick",
+      "damage": 0,
+      "dps": 0,
+      "duration": 1.23,
+      "type": "water",
+      "id": 231
+    },
+    "water gun blastoise": {
+      "name": "Water Gun Blastoise",
+      "class": "Quick",
+      "damage": 6,
+      "dps": 12,
+      "duration": 0.5,
+      "type": "water",
+      "id": 232
+    },
+    "mud slap": {
+      "name": "Mud Slap",
+      "class": "Quick",
+      "damage": 15,
+      "dps": 11.11111,
+      "duration": 1.35,
+      "type": "ground",
+      "id": 233
+    },
+    "zen headbutt": {
+      "name": "Zen Headbutt",
+      "class": "Quick",
+      "damage": 12,
+      "dps": 11.42857,
+      "duration": 1.05,
+      "type": "psychic",
+      "id": 234
+    },
+    "confusion": {
+      "name": "Confusion",
+      "class": "Quick",
+      "damage": 15,
+      "dps": 9.93377,
+      "duration": 1.51,
+      "type": "psychic",
+      "id": 235
+    },
+    "poison sting": {
+      "name": "Poison Sting",
+      "class": "Quick",
+      "damage": 6,
+      "dps": 10.43478,
+      "duration": 0.575,
+      "type": "poison",
+      "id": 236
+    },
+    "bubble": {
+      "name": "Bubble",
+      "class": "Quick",
+      "damage": 25,
+      "dps": 10.86956,
+      "duration": 2.3,
+      "type": "water",
+      "id": 237
+    },
+    "feint attack": {
+      "name": "Feint Attack",
+      "class": "Quick",
+      "damage": 12,
+      "dps": 11.53846,
+      "duration": 1.04,
+      "type": "dark",
+      "id": 238
+    },
+    "steel wing": {
+      "name": "Steel Wing",
+      "class": "Quick",
+      "damage": 15,
+      "dps": 11.27819,
+      "duration": 1.33,
+      "type": "steel",
+      "id": 239
+    },
+    "fire fang": {
+      "name": "Fire Fang",
+      "class": "Quick",
+      "damage": 10,
+      "dps": 11.90476,
+      "duration": 0.84,
+      "type": "fire",
+      "id": 240
+    },
+    "rock smash": {
+      "name": "Rock Smash",
+      "class": "Quick",
+      "damage": 15,
+      "dps": 10.63829,
+      "duration": 1.41,
+      "type": "fighting",
+      "id": 241
+    }
+  },
+  "powerMoves": {
+    "x-scissor": {
+      "name": "X-Scissor",
+      "class": "Power",
+      "damage": 35,
+      "dps": 16.66666,
+      "duration": 2.1,
+      "type": "bug",
+      "id": 100
+    },
+    "flame charge": {
+      "name": "Flame Charge",
+      "class": "Power",
+      "damage": 25,
+      "dps": 8.06451,
+      "duration": 3.1,
+      "type": "fire",
+      "id": 101
+    },
+    "flame burst": {
+      "name": "Flame Burst",
+      "class": "Power",
+      "damage": 30,
+      "dps": 14.28571,
+      "duration": 2.1,
+      "type": "fire",
+      "id": 102
+    },
+    "fire blast": {
+      "name": "Fire Blast",
+      "class": "Power",
+      "damage": 100,
+      "dps": 24.39024,
+      "duration": 4.1,
+      "type": "fire",
+      "id": 103
+    },
+    "brine": {
+      "name": "Brine",
+      "class": "Power",
+      "damage": 25,
+      "dps": 10.41666,
+      "duration": 2.4,
+      "type": "water",
+      "id": 104
+    },
+    "water pulse": {
+      "name": "Water Pulse",
+      "class": "Power",
+      "damage": 35,
+      "dps": 10.60606,
+      "duration": 3.3,
+      "type": "water",
+      "id": 105
+    },
+    "scald": {
+      "name": "Scald",
+      "class": "Power",
+      "damage": 55,
+      "dps": 13.75,
+      "duration": 4,
+      "type": "water",
+      "id": 106
+    },
+    "hydro pump": {
+      "name": "Hydro Pump",
+      "class": "Power",
+      "damage": 90,
+      "dps": 23.68421,
+      "duration": 3.8,
+      "type": "water",
+      "id": 107
+    },
+    "psychic": {
+      "name": "Psychic",
+      "class": "Power",
+      "damage": 55,
+      "dps": 19.64285,
+      "duration": 2.8,
+      "type": "psychic",
+      "id": 108
+    },
+    "psystrike": {
+      "name": "Psystrike",
+      "class": "Power",
+      "damage": 70,
+      "dps": 13.72549,
+      "duration": 5.1,
+      "type": "psychic",
+      "id": 109
+    },
+    "icy wind": {
+      "name": "Icy Wind",
+      "class": "Power",
+      "damage": 25,
+      "dps": 6.57894,
+      "duration": 3.8,
+      "type": "ice",
+      "id": 111
+    },
+    "giga drain": {
+      "name": "Giga Drain",
+      "class": "Power",
+      "damage": 35,
+      "dps": 9.72222,
+      "duration": 3.6,
+      "type": "grass",
+      "id": 114
+    },
+    "fire punch": {
+      "name": "Fire Punch",
+      "class": "Power",
+      "damage": 40,
+      "dps": 14.28571,
+      "duration": 2.8,
+      "type": "fire",
+      "id": 115
+    },
+    "solar beam": {
+      "name": "Solar Beam",
+      "class": "Power",
+      "damage": 120,
+      "dps": 24.48979,
+      "duration": 4.9,
+      "type": "grass",
+      "id": 116
+    },
+    "leaf blade": {
+      "name": "Leaf Blade",
+      "class": "Power",
+      "damage": 55,
+      "dps": 19.64285,
+      "duration": 2.8,
+      "type": "grass",
+      "id": 117
+    },
+    "power whip": {
+      "name": "Power Whip",
+      "class": "Power",
+      "damage": 70,
+      "dps": 25,
+      "duration": 2.8,
+      "type": "grass",
+      "id": 118
+    },
+    "air cutter": {
+      "name": "Air Cutter",
+      "class": "Power",
+      "damage": 30,
+      "dps": 9.0909,
+      "duration": 3.3,
+      "type": "flying",
+      "id": 121
+    },
+    "hurricane": {
+      "name": "Hurricane",
+      "class": "Power",
+      "damage": 80,
+      "dps": 25,
+      "duration": 3.2,
+      "type": "flying",
+      "id": 122
+    },
+    "brick break": {
+      "name": "Brick Break",
+      "class": "Power",
+      "damage": 30,
+      "dps": 18.75,
+      "duration": 1.6,
+      "type": "fighting",
+      "id": 123
+    },
+    "swift": {
+      "name": "Swift",
+      "class": "Power",
+      "damage": 30,
+      "dps": 10,
+      "duration": 3,
+      "type": "normal",
+      "id": 125
+    },
+    "horn attack": {
+      "name": "Horn Attack",
+      "class": "Power",
+      "damage": 25,
+      "dps": 11.36363,
+      "duration": 2.2,
+      "type": "normal",
+      "id": 126
+    },
+    "stomp": {
+      "name": "Stomp",
+      "class": "Power",
+      "damage": 30,
+      "dps": 14.28571,
+      "duration": 2.1,
+      "type": "normal",
+      "id": 127
+    },
+    "hyper fang": {
+      "name": "Hyper Fang",
+      "class": "Power",
+      "damage": 35,
+      "dps": 16.66666,
+      "duration": 2.1,
+      "type": "normal",
+      "id": 129
+    },
+    "body slam": {
+      "name": "Body Slam",
+      "class": "Power",
+      "damage": 40,
+      "dps": 25.64102,
+      "duration": 1.56,
+      "type": "normal",
+      "id": 131
+    },
+    "rest": {
+      "name": "Rest",
+      "class": "Power",
+      "damage": 35,
+      "dps": 11.29032,
+      "duration": 3.1,
+      "type": "normal",
+      "id": 132
+    },
+    "struggle": {
+      "name": "Struggle",
+      "class": "Power",
+      "damage": 15,
+      "dps": 8.84955,
+      "duration": 1.695,
+      "type": "normal",
+      "id": 133
+    },
+    "scald blastoise": {
+      "name": "Scald Blastoise",
+      "class": "Power",
+      "damage": 55,
+      "dps": 13.75,
+      "duration": 4,
+      "type": "water",
+      "id": 134
+    },
+    "hydro pump blastoise": {
+      "name": "Hydro Pump Blastoise",
+      "class": "Power",
+      "damage": 90,
+      "dps": 23.68421,
+      "duration": 3.8,
+      "type": "water",
+      "id": 135
+    },
+    "wrap green": {
+      "name": "Wrap Green",
+      "class": "Power",
+      "damage": 25,
+      "dps": 6.25,
+      "duration": 4,
+      "type": "normal",
+      "id": 136
+    },
+    "wrap pink": {
+      "name": "Wrap Pink",
+      "class": "Power",
+      "damage": 25,
+      "dps": 6.25,
+      "duration": 4,
+      "type": "normal",
+      "id": 137
+    },
+    "wrap": {
+      "name": "Wrap",
+      "class": "Power",
+      "damage": 25,
+      "dps": 6.25,
+      "duration": 4,
+      "type": "normal",
+      "id": 13
+    },
+    "hyper beam": {
+      "name": "Hyper Beam",
+      "class": "Power",
+      "damage": 120,
+      "dps": 24,
+      "duration": 5,
+      "type": "normal",
+      "id": 14
+    },
+    "dark pulse": {
+      "name": "Dark Pulse",
+      "class": "Power",
+      "damage": 45,
+      "dps": 12.85714,
+      "duration": 3.5,
+      "type": "dark",
+      "id": 16
+    },
+    "sludge": {
+      "name": "Sludge",
+      "class": "Power",
+      "damage": 30,
+      "dps": 11.53846,
+      "duration": 2.6,
+      "type": "poison",
+      "id": 18
+    },
+    "vice grip": {
+      "name": "Vice Grip",
+      "class": "Power",
+      "damage": 25,
+      "dps": 11.90476,
+      "duration": 2.1,
+      "type": "normal",
+      "id": 20
+    },
+    "flame wheel": {
+      "name": "Flame Wheel",
+      "class": "Power",
+      "damage": 40,
+      "dps": 8.69565,
+      "duration": 4.6,
+      "type": "fire",
+      "id": 21
+    },
+    "megahorn": {
+      "name": "Megahorn",
+      "class": "Power",
+      "damage": 80,
+      "dps": 25,
+      "duration": 3.2,
+      "type": "bug",
+      "id": 22
+    },
+    "flamethrower": {
+      "name": "Flamethrower",
+      "class": "Power",
+      "damage": 55,
+      "dps": 18.96551,
+      "duration": 2.9,
+      "type": "fire",
+      "id": 24
+    },
+    "dig": {
+      "name": "Dig",
+      "class": "Power",
+      "damage": 70,
+      "dps": 12.06896,
+      "duration": 5.8,
+      "type": "ground",
+      "id": 26
+    },
+    "cross chop": {
+      "name": "Cross Chop",
+      "class": "Power",
+      "damage": 60,
+      "dps": 30,
+      "duration": 2,
+      "type": "fighting",
+      "id": 28
+    },
+    "psybeam": {
+      "name": "Psybeam",
+      "class": "Power",
+      "damage": 40,
+      "dps": 10.52631,
+      "duration": 3.8,
+      "type": "psychic",
+      "id": 30
+    },
+    "earthquake": {
+      "name": "Earthquake",
+      "class": "Power",
+      "damage": 100,
+      "dps": 23.80952,
+      "duration": 4.2,
+      "type": "ground",
+      "id": 31
+    },
+    "stone edge": {
+      "name": "Stone Edge",
+      "class": "Power",
+      "damage": 80,
+      "dps": 25.80645,
+      "duration": 3.1,
+      "type": "rock",
+      "id": 32
+    },
+    "ice punch": {
+      "name": "Ice Punch",
+      "class": "Power",
+      "damage": 45,
+      "dps": 12.85714,
+      "duration": 3.5,
+      "type": "ice",
+      "id": 33
+    },
+    "heart stamp": {
+      "name": "Heart Stamp",
+      "class": "Power",
+      "damage": 20,
+      "dps": 7.84313,
+      "duration": 2.55,
+      "type": "psychic",
+      "id": 34
+    },
+    "discharge": {
+      "name": "Discharge",
+      "class": "Power",
+      "damage": 35,
+      "dps": 14,
+      "duration": 2.5,
+      "type": "electric",
+      "id": 35
+    },
+    "flash cannon": {
+      "name": "Flash Cannon",
+      "class": "Power",
+      "damage": 60,
+      "dps": 15.38461,
+      "duration": 3.9,
+      "type": "steel",
+      "id": 36
+    },
+    "drill peck": {
+      "name": "Drill Peck",
+      "class": "Power",
+      "damage": 40,
+      "dps": 14.81481,
+      "duration": 2.7,
+      "type": "flying",
+      "id": 38
+    },
+    "ice beam": {
+      "name": "Ice Beam",
+      "class": "Power",
+      "damage": 65,
+      "dps": 17.80821,
+      "duration": 3.65,
+      "type": "ice",
+      "id": 39
+    },
+    "blizzard": {
+      "name": "Blizzard",
+      "class": "Power",
+      "damage": 100,
+      "dps": 25.64102,
+      "duration": 3.9,
+      "type": "ice",
+      "id": 40
+    },
+    "heat wave": {
+      "name": "Heat Wave",
+      "class": "Power",
+      "damage": 80,
+      "dps": 21.05263,
+      "duration": 3.8,
+      "type": "fire",
+      "id": 42
+    },
+    "aerial ace": {
+      "name": "Aerial Ace",
+      "class": "Power",
+      "damage": 30,
+      "dps": 10.34482,
+      "duration": 2.9,
+      "type": "flying",
+      "id": 45
+    },
+    "drill run": {
+      "name": "Drill Run",
+      "class": "Power",
+      "damage": 50,
+      "dps": 14.70588,
+      "duration": 3.4,
+      "type": "ground",
+      "id": 46
+    },
+    "petal blizzard": {
+      "name": "Petal Blizzard",
+      "class": "Power",
+      "damage": 65,
+      "dps": 20.3125,
+      "duration": 3.2,
+      "type": "grass",
+      "id": 47
+    },
+    "mega drain": {
+      "name": "Mega Drain",
+      "class": "Power",
+      "damage": 15,
+      "dps": 4.6875,
+      "duration": 3.2,
+      "type": "grass",
+      "id": 48
+    },
+    "bug buzz": {
+      "name": "Bug Buzz",
+      "class": "Power",
+      "damage": 75,
+      "dps": 17.64705,
+      "duration": 4.25,
+      "type": "bug",
+      "id": 49
+    },
+    "poison fang": {
+      "name": "Poison Fang",
+      "class": "Power",
+      "damage": 25,
+      "dps": 10.41666,
+      "duration": 2.4,
+      "type": "poison",
+      "id": 50
+    },
+    "night slash": {
+      "name": "Night Slash",
+      "class": "Power",
+      "damage": 30,
+      "dps": 11.11111,
+      "duration": 2.7,
+      "type": "dark",
+      "id": 51
+    },
+    "bubble beam": {
+      "name": "Bubble Beam",
+      "class": "Power",
+      "damage": 30,
+      "dps": 10.34482,
+      "duration": 2.9,
+      "type": "water",
+      "id": 53
+    },
+    "submission": {
+      "name": "Submission",
+      "class": "Power",
+      "damage": 30,
+      "dps": 14.28571,
+      "duration": 2.1,
+      "type": "fighting",
+      "id": 54
+    },
+    "low sweep": {
+      "name": "Low Sweep",
+      "class": "Power",
+      "damage": 30,
+      "dps": 13.33333,
+      "duration": 2.25,
+      "type": "fighting",
+      "id": 56
+    },
+    "aqua jet": {
+      "name": "Aqua Jet",
+      "class": "Power",
+      "damage": 25,
+      "dps": 10.63829,
+      "duration": 2.35,
+      "type": "water",
+      "id": 57
+    },
+    "aqua tail": {
+      "name": "Aqua Tail",
+      "class": "Power",
+      "damage": 45,
+      "dps": 19.14893,
+      "duration": 2.35,
+      "type": "water",
+      "id": 58
+    },
+    "seed bomb": {
+      "name": "Seed Bomb",
+      "class": "Power",
+      "damage": 40,
+      "dps": 16.66666,
+      "duration": 2.4,
+      "type": "grass",
+      "id": 59
+    },
+    "psyshock": {
+      "name": "Psyshock",
+      "class": "Power",
+      "damage": 40,
+      "dps": 14.81481,
+      "duration": 2.7,
+      "type": "psychic",
+      "id": 60
+    },
+    "ancient power": {
+      "name": "Ancient Power",
+      "class": "Power",
+      "damage": 35,
+      "dps": 9.72222,
+      "duration": 3.6,
+      "type": "rock",
+      "id": 62
+    },
+    "rock tomb": {
+      "name": "Rock Tomb",
+      "class": "Power",
+      "damage": 30,
+      "dps": 8.82352,
+      "duration": 3.4,
+      "type": "rock",
+      "id": 63
+    },
+    "rock slide": {
+      "name": "Rock Slide",
+      "class": "Power",
+      "damage": 50,
+      "dps": 15.625,
+      "duration": 3.2,
+      "type": "rock",
+      "id": 64
+    },
+    "power gem": {
+      "name": "Power Gem",
+      "class": "Power",
+      "damage": 40,
+      "dps": 13.7931,
+      "duration": 2.9,
+      "type": "rock",
+      "id": 65
+    },
+    "shadow sneak": {
+      "name": "Shadow Sneak",
+      "class": "Power",
+      "damage": 15,
+      "dps": 4.8387,
+      "duration": 3.1,
+      "type": "ghost",
+      "id": 66
+    },
+    "shadow punch": {
+      "name": "Shadow Punch",
+      "class": "Power",
+      "damage": 20,
+      "dps": 9.5238,
+      "duration": 2.1,
+      "type": "ghost",
+      "id": 67
+    },
+    "ominous wind": {
+      "name": "Ominous Wind",
+      "class": "Power",
+      "damage": 30,
+      "dps": 9.67741,
+      "duration": 3.1,
+      "type": "ghost",
+      "id": 69
+    },
+    "shadow ball": {
+      "name": "Shadow Ball",
+      "class": "Power",
+      "damage": 45,
+      "dps": 14.61038,
+      "duration": 3.08,
+      "type": "ghost",
+      "id": 70
+    },
+    "magnet bomb": {
+      "name": "Magnet Bomb",
+      "class": "Power",
+      "damage": 30,
+      "dps": 10.71428,
+      "duration": 2.8,
+      "type": "steel",
+      "id": 72
+    },
+    "iron head": {
+      "name": "Iron Head",
+      "class": "Power",
+      "damage": 30,
+      "dps": 15,
+      "duration": 2,
+      "type": "steel",
+      "id": 74
+    },
+    "parabolic charge": {
+      "name": "Parabolic Charge",
+      "class": "Power",
+      "damage": 15,
+      "dps": 7.14285,
+      "duration": 2.1,
+      "type": "electric",
+      "id": 75
+    },
+    "thunder punch": {
+      "name": "Thunder Punch",
+      "class": "Power",
+      "damage": 40,
+      "dps": 16.66666,
+      "duration": 2.4,
+      "type": "electric",
+      "id": 77
+    },
+    "thunder": {
+      "name": "Thunder",
+      "class": "Power",
+      "damage": 100,
+      "dps": 23.25581,
+      "duration": 4.3,
+      "type": "electric",
+      "id": 78
+    },
+    "thunderbolt": {
+      "name": "Thunderbolt",
+      "class": "Power",
+      "damage": 55,
+      "dps": 20.37037,
+      "duration": 2.7,
+      "type": "electric",
+      "id": 79
+    },
+    "twister": {
+      "name": "Twister",
+      "class": "Power",
+      "damage": 25,
+      "dps": 9.25925,
+      "duration": 2.7,
+      "type": "dragon",
+      "id": 80
+    },
+    "dragon pulse": {
+      "name": "Dragon Pulse",
+      "class": "Power",
+      "damage": 65,
+      "dps": 18.05555,
+      "duration": 3.6,
+      "type": "dragon",
+      "id": 82
+    },
+    "dragon claw": {
+      "name": "Dragon Claw",
+      "class": "Power",
+      "damage": 35,
+      "dps": 23.33333,
+      "duration": 1.5,
+      "type": "dragon",
+      "id": 83
+    },
+    "disarming voice": {
+      "name": "Disarming Voice",
+      "class": "Power",
+      "damage": 25,
+      "dps": 6.41025,
+      "duration": 3.9,
+      "type": "fairy",
+      "id": 84
+    },
+    "draining kiss": {
+      "name": "Draining Kiss",
+      "class": "Power",
+      "damage": 25,
+      "dps": 8.92857,
+      "duration": 2.8,
+      "type": "fairy",
+      "id": 85
+    },
+    "dazzling gleam": {
+      "name": "Dazzling Gleam",
+      "class": "Power",
+      "damage": 55,
+      "dps": 13.09523,
+      "duration": 4.2,
+      "type": "fairy",
+      "id": 86
+    },
+    "moonblast": {
+      "name": "Moonblast",
+      "class": "Power",
+      "damage": 85,
+      "dps": 20.7317,
+      "duration": 4.1,
+      "type": "fairy",
+      "id": 87
+    },
+    "play rough": {
+      "name": "Play Rough",
+      "class": "Power",
+      "damage": 55,
+      "dps": 18.96551,
+      "duration": 2.9,
+      "type": "fairy",
+      "id": 88
+    },
+    "cross poison": {
+      "name": "Cross Poison",
+      "class": "Power",
+      "damage": 25,
+      "dps": 16.66666,
+      "duration": 1.5,
+      "type": "poison",
+      "id": 89
+    },
+    "sludge bomb": {
+      "name": "Sludge Bomb",
+      "class": "Power",
+      "damage": 55,
+      "dps": 21.15384,
+      "duration": 2.6,
+      "type": "poison",
+      "id": 90
+    },
+    "sludge wave": {
+      "name": "Sludge Wave",
+      "class": "Power",
+      "damage": 70,
+      "dps": 20.58823,
+      "duration": 3.4,
+      "type": "poison",
+      "id": 91
+    },
+    "gunk shot": {
+      "name": "Gunk Shot",
+      "class": "Power",
+      "damage": 65,
+      "dps": 21.66666,
+      "duration": 3,
+      "type": "poison",
+      "id": 92
+    },
+    "bone club": {
+      "name": "Bone Club",
+      "class": "Power",
+      "damage": 25,
+      "dps": 15.625,
+      "duration": 1.6,
+      "type": "ground",
+      "id": 94
+    },
+    "bulldoze": {
+      "name": "Bulldoze",
+      "class": "Power",
+      "damage": 35,
+      "dps": 10.29411,
+      "duration": 3.4,
+      "type": "ground",
+      "id": 95
+    },
+    "mud bomb": {
+      "name": "Mud Bomb",
+      "class": "Power",
+      "damage": 30,
+      "dps": 11.53846,
+      "duration": 2.6,
+      "type": "ground",
+      "id": 96
+    },
+    "signal beam": {
+      "name": "Signal Beam",
+      "class": "Power",
+      "damage": 45,
+      "dps": 14.51612,
+      "duration": 3.1,
+      "type": "bug",
+      "id": 99
+    }
+  }
+}
