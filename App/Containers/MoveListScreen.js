@@ -30,7 +30,9 @@ class MoveListScreen extends React.Component {
     data: PropTypes.object.isRequired
   }
 
-
+  _dpsFormat (dps) {
+    return Math.floor(100*dps)/100
+  }
   _sortMovesByDPS (moves) {
     // sorts in reverse (e.g. highest first)
     return moves.sort( (left, right) => {
@@ -112,8 +114,8 @@ class MoveListScreen extends React.Component {
       <View key={rowData.id} style={styles.row}>
         <Text selectable={true} style={[styles.col, {flex: 2}]}>{rowData.name}</Text>
         <Text selectable={true} style={styles.col}>{rowData.damage}</Text>
-        <Text selectable={true} style={styles.col}>{rowData.dps}</Text>
-        <Text selectable={true} style={styles.col}>{Math.floor(100* rowData.damage/rowData.dps, 2)/100}</Text>
+        <Text selectable={true} style={styles.col}>{this._dpsFormat(rowData.dps)}</Text>
+        <Text selectable={true} style={styles.col}>{rowData.duration}</Text>
       </View>
           )
   }
