@@ -103,7 +103,8 @@ class PokeListScreen extends React.Component {
       <View style={styles.container}>
         <AlertMessage title='Nothing to See Here, Move Along' show={this._noRowData()} />
         <ListView
-          initialListSize={100}
+          initialListSize={45}
+          pageSize={12}
           contentContainerStyle={styles.listContent}
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
