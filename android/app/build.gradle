@@ -19,10 +19,19 @@ def getPassword(String currentUser, String keyChain) {
       stdout.toString().trim()
 }
 
+
+/* added 20160818 - setting up versioning */
+import groovy.json.JsonSlurper
+
 def getNpmVersion() {
     def inputFile = new File("../package.json")
     def packageJson = new JsonSlurper().parseText(inputFile.text)
     return packageJson["version"]
+}
+def gitVersion() {
+    def counter = 0
+    def process = "git rev-list master --first-parent --count".execute()
+    return process.text.toInteger()
 }
 
 
@@ -108,7 +117,9 @@ def enableProguardInReleaseBuilds = false
 
 
 def pass = getPassword("travis","android_keystore_pMoves")
-def ver = getNPMVersion()
+def userVer = getNpmVersion()
+def googleVer = gitVersion()
+
 
 android {
     compileSdkVersion 23
@@ -118,8 +129,8 @@ android {
         applicationId "com.pmoves"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 1
-        versionName ver
+        versionCode googleVer
+        versionName userVer
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
