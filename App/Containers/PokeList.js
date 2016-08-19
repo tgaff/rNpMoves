@@ -7,6 +7,7 @@ import data from '../Lib/PokemonList'
 import { Images, Colors } from '../Themes'
 import ActionButton from 'react-native-action-button'
 import Icon from 'react-native-vector-icons/Ionicons'
+import FindByAlphabetModal from '../Components/FindByAlphabetModal'
 
 // For empty lists
 import AlertMessage from '../Components/AlertMessageComponent'
@@ -36,7 +37,8 @@ class PokeListScreen extends React.Component {
     // Datasource is always in state
     this.state = {
       pokemonData: data.data,
-      dataSource: ds.cloneWithRows(data.data)
+      dataSource: ds.cloneWithRows(data.data),
+      sortByAlphabetModal: false
     }
   }
 
@@ -52,7 +54,7 @@ class PokeListScreen extends React.Component {
     var buttonStyle = styles[rowData.type1.toLowerCase()+"Row"]
     console.log('style', buttonStyle, rowData.type1)
     return (<TouchableHighlight style={buttonStyle} onPress={ () => this.handlePressButton(rowData.id)  }>
-              <View style={{position: 'absolute', left: 0, bottom: 0, right: 0, top:0}}>
+              <View>
                 <Image style={styles.buttonImage} source={Images.pokemon[rowData.id]}>
                 <Text style={[styles.boldLabel]}>{rowData.name}</Text>
 
@@ -74,7 +76,12 @@ class PokeListScreen extends React.Component {
   }
 
   _openFilterModal = (params) => {
-    window.alert('sort by '+ params.sortType)
+    if (params.sortType === 'alphabetical') {
+
+    } else {
+      window.alert('sort by '+ params.sortType)
+
+    }
     this.setState({modal: params})
     this.setState({openModal: true})
   }
@@ -132,6 +139,7 @@ class PokeListScreen extends React.Component {
           </ActionButton.Item>
         </ActionButton>
 
+        <FindByAlphabetModal visible={this.state.sortByAlphabetModal} onRequestClose={this.filterAlphabetical}/>
       </View>
     )
   }
