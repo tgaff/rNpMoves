@@ -73,6 +73,13 @@ class PokeListScreen extends React.Component {
     // dispatch(Actions.displayMoves(id))
   }
 
+  _openFilterModal = (params) => {
+    window.alert('sort by '+ params.sortType)
+    this.setState({modal: params})
+    this.setState({openModal: true})
+  }
+
+
   /* ***********************************************************
   * STEP 4
   * If your datasource is driven by Redux, you'll need to
@@ -101,6 +108,8 @@ class PokeListScreen extends React.Component {
   }
 
   render () {
+    const searchIcon = (<Icon name="ios-search" size={30} color={Colors.snow} />)
+
     return (
       <View style={styles.container}>
         <AlertMessage title='Nothing to See Here, Move Along' show={this._noRowData()} />
@@ -111,15 +120,15 @@ class PokeListScreen extends React.Component {
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
         />
-        <ActionButton buttonColor="rgba(231,76,60,1)">
-          <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
-            <Icon name="md-create" style={styles.actionButtonIcon} />
+        <ActionButton buttonColor={Colors.charcoal} icon={searchIcon} degrees={450}>
+          <ActionButton.Item buttonColor='#9b59b6' title="Find by type" onPress={() => {this._openFilterModal({sortType: 'type'})}}>
+            <Icon name="md-flame" style={styles.actionButtonIcon} />
           </ActionButton.Item>
-          <ActionButton.Item buttonColor='#3498db' title="Notifications" onPress={() => {window.alert('notifications')}}>
-            <Icon name="md-notifications-off" style={styles.actionButtonIcon} />
+          <ActionButton.Item buttonColor='#3498db' title="Find alphabetical" onPress={()=>{this._openFilterModal({sortType: 'alphabetical'})}}>
+            <Text style={styles.actionButtonMainText}>Aa</Text>
           </ActionButton.Item>
-          <ActionButton.Item buttonColor='#1abc9c' title="All Tasks" onPress={() => {window.alert('all tasks')}}>
-            <Icon name="md-done-all" style={styles.actionButtonIcon} />
+          <ActionButton.Item buttonColor='#1abc9c' title="Sort by Pokedex number" onPress={()=>{this._openFilterModal({sortType: 'number'})} }>
+            <Text style={styles.actionButtonMainText}>#</Text>
           </ActionButton.Item>
         </ActionButton>
 
