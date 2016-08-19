@@ -54,8 +54,8 @@ class MoveListScreen extends React.Component {
       `The total damage that this attack does.`
       +`\n\nMany Quick Moves are quite fast and can be fired very quickly in succession.  `
       +`If two Quick Moves are similarly fast, choose the one with the highest total damage.`
-      +`\n\nFor Power Moves, duration varies a lot.  Choose the one with the highest DPS.
-      +\n Note: that actual damage done is also modified by a number of other factors.`
+      +`\n\nFor Power Moves, duration varies a lot.  Choose the one with the highest DPS.`
+      + `\n Note: that actual damage done is also modified by a number of other factors.`
       this._openHelpModal({body: message, title: 'Help: Damage'})
     },
     dps: () => {
