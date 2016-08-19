@@ -6,6 +6,13 @@ import { Actions as NavigationActions } from 'react-native-router-flux'
 import data from '../Lib/PokemonList'
 import { Images, Colors } from '../Themes'
 
+import {
+  getTheme,
+  MKButton,
+  MKColor
+} from 'react-native-material-kit';
+
+const theme = getTheme();
 // For empty lists
 import AlertMessage from '../Components/AlertMessageComponent'
 
@@ -99,7 +106,21 @@ class PokeListScreen extends React.Component {
   }
 
   render () {
+    const CustomButton = new MKButton.Builder()
+  .withBackgroundColor(MKColor.Teal)
+  .withOnPress(() => {
+    console.log('hi, raised button!');
+    window.alert('hi');
+  })
+  .withTextStyle({
+    color: 'white',
+    fontWeight: 'bold',
+  })
+  .withText('RAISED BUTTON')
+  .build();
+
     return (
+
       <View style={styles.container}>
         <AlertMessage title='Nothing to See Here, Move Along' show={this._noRowData()} />
         <ListView
@@ -109,10 +130,22 @@ class PokeListScreen extends React.Component {
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
         />
+        <CustomButton />
       </View>
     )
   }
 }
+
+
+/*
+<ColoredFAB onPress={() => { console.log('pressed'); window.alert('hi') } } >
+  <Text pointerEvents="none" style={{color: 'black', fontWeight: 'bold',}}>
+    RAISED BUTTON
+  </Text>
+</ColoredFAB>
+
+*/
+
 
 const mapStateToProps = (state) => {
   //console.log(cleanedPokeData)
