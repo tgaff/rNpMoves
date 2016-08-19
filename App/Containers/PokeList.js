@@ -5,6 +5,8 @@ import { Actions as NavigationActions } from 'react-native-router-flux'
 ///import pokemonData from '../Lib/PokemonList'
 import data from '../Lib/PokemonList'
 import { Images, Colors } from '../Themes'
+import ActionButton from 'react-native-action-button'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 // For empty lists
 import AlertMessage from '../Components/AlertMessageComponent'
@@ -109,6 +111,18 @@ class PokeListScreen extends React.Component {
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
         />
+        <ActionButton buttonColor="rgba(231,76,60,1)">
+          <ActionButton.Item buttonColor='#9b59b6' title="New Task" onPress={() => console.log("notes tapped!")}>
+            <Icon name="md-create" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor='#3498db' title="Notifications" onPress={() => {window.alert('notifications')}}>
+            <Icon name="md-notifications-off" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor='#1abc9c' title="All Tasks" onPress={() => {window.alert('all tasks')}}>
+            <Icon name="md-done-all" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
+        </ActionButton>
+
       </View>
     )
   }
