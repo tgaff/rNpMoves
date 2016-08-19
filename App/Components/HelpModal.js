@@ -31,23 +31,14 @@ class HelpModal extends Component {
     this.setState({openModal: false});
   }
 
-  // _open = () => {
-  //   this.setState({openModal: true});
-  // }
 
   componentWillReceiveProps = (newProps) => {
-    //newState = Object.assign({}, this.state)
-    //debugger
     let newState = {
       title: newProps.title,
       body: newProps.body,
       onRequstClose: newProps.onRequestClose,
       openModal: newProps.openModal
     }
-    // (newProps.styles) && (newState.styles = newProps.styles) // only if passed
-    // newProps.onRequestClose && (newState.onRequestClose = newProps.onRequestClose)
-    // finally, display it
-
     this.setState(newState)
   }
   render () {
