@@ -90,14 +90,17 @@ class PokeListScreen extends React.Component {
 
   filterAlphabetical = (char) => {
     console.log(allPokemonData)
+    let filteredPokemons = allPokemonData.data
 
-    // dataSource: ds.cloneWithRows(allPokemonData.data),
-    let filteredPokemons = allPokemonData.data.filter( (elem) => {
-      if (elem.name[0].toUpperCase() === char ) { return true }
-
-      return false
-    })
-    this.setState({dataSource: this.state.dataSource.cloneWithRows(filteredPokemons), sortByAlphabetModal: false})
+    if (char) {
+      // dataSource: ds.cloneWithRows(allPokemonData.data),
+      filteredPokemons = allPokemonData.data.filter( (elem) => {
+        if (elem.name[0].toUpperCase() === char ) { return true }
+        return false
+      })
+    }
+    this.setState({sortByAlphabetModal: false})
+    this.setState({dataSource: this.state.dataSource.cloneWithRows(filteredPokemons)})
   }
 
   /* ***********************************************************

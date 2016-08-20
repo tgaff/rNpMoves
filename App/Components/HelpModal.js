@@ -28,7 +28,7 @@ class HelpModal extends Component {
   _closeModal = () => {
 
     if ( this.props.onRequestClose ) { this.props.onRequestClose() }
-    this.setState({openModal: false});
+    this.setState({openModal: false}); // FIXME - likely a bug, this is controlled by PARENT
   }
 
 

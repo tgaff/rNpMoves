@@ -1,9 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import { Text, TouchableOpacity, Modal, TouchableHighlight, View, ListView } from 'react-native'
 import RoundedButton from './RoundedButton'
+import { Colors } from '../Themes'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import styles from './Styles/FindByAlphabetModalStyles'
 const ALPHABET="ABCDEFGHIJKLMNOPRSTVWZ".split('')
+import ActionButton from 'react-native-action-button'
+
 
 
 class FindByAlphabetModal extends Component {
@@ -27,7 +31,7 @@ class FindByAlphabetModal extends Component {
 
   static propTypes = {
     styles: React.PropTypes.object,
-    onSelection: React.PropTypes.func.isRequired,
+    onSelection: React.PropTypes.func.isRequired, // callback to parent
     visible: React.PropTypes.bool
     // title: React.PropTypes.string.isRequired,
     // body: React.PropTypes.string.isRequired
@@ -43,16 +47,8 @@ class FindByAlphabetModal extends Component {
   }
 
   handlePressButton = (character) => {
-    // this._closeModal()
-    this.setState({openModal: false});
-
     this.props.onSelection(character)
   }
-
-  _closeModal = () => {
-    this.setState({openModal: false});
-  }
-
 
   componentWillReceiveProps = (newProps) => {
     let newState = {
@@ -62,10 +58,11 @@ class FindByAlphabetModal extends Component {
   }
 
   render () {
+    const closeIcon = (<Icon name="ios-close" size={30} color="#fff" />)
 
     return (
       <Modal animationType='fade' transparent={true} visible={this.state.openModal}
-                             onRequestClose={ this._closeModal } >
+                             onRequestClose={ () => { this.handlePressButton('') } } >
         <View style={[styles.view, styles.container,this.state.styles]}>
           <Text>{this.state.openModal}</Text>
           <ListView
@@ -75,10 +72,11 @@ class FindByAlphabetModal extends Component {
             dataSource={this.state.dataSource}
             renderRow={this._renderRow}
           />
-
-          <RoundedButton
-            text='X'
-            onPress={this._closeModal}
+          <ActionButton
+            position="center"
+            buttonColor={Colors.charcoal}
+            icon={closeIcon}
+            onPress={() => { this.handlePressButton('') }}
           />
         </View>
       </Modal>
