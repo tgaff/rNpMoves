@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, Modal, TouchableHighlight, View, ListView } fro
 import RoundedButton from './RoundedButton'
 
 import styles from './Styles/FindByAlphabetModalStyles'
-const ALPHABET="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
+const ALPHABET="ABCDEFGHIJKLMNOPRSTVWZ".split('')
 
 
 class FindByAlphabetModal extends Component {
@@ -20,14 +20,15 @@ class FindByAlphabetModal extends Component {
     this.state = {
       openModal: false,
       styles: props.styles,
-      onSelection: props.onSelection,
+      // onSelection: props.onSelection,
       dataSource: ds.cloneWithRows(ALPHABET)
     }
   }
 
   static propTypes = {
     styles: React.PropTypes.object,
-    onRequestClose: React.PropTypes.func,
+    onSelection: React.PropTypes.func.isRequired,
+    visible: React.PropTypes.bool
     // title: React.PropTypes.string.isRequired,
     // body: React.PropTypes.string.isRequired
   }
@@ -42,33 +43,31 @@ class FindByAlphabetModal extends Component {
   }
 
   handlePressButton = (character) => {
-     this.props.onSelection(character)
-    this._closeModal()
+    // this._closeModal()
+    this.setState({openModal: false});
+
+    this.props.onSelection(character)
   }
 
   _closeModal = () => {
-
-    if ( this.props.onRequestClose ) { this.props.onRequestClose() }
     this.setState({openModal: false});
   }
 
 
   componentWillReceiveProps = (newProps) => {
     let newState = {
-      title: newProps.title,
-      body: newProps.body,
-      onRequstClose: newProps.onRequestClose,
-      openModal: newProps.openModal
+      openModal: newProps.visible
     }
     this.setState(newState)
   }
+
   render () {
 
     return (
       <Modal animationType='fade' transparent={true} visible={this.state.openModal}
                              onRequestClose={ this._closeModal } >
         <View style={[styles.view, styles.container,this.state.styles]}>
-
+          <Text>{this.state.openModal}</Text>
           <ListView
             initialListSize={45}
             pageSize={12}

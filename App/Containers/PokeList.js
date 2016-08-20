@@ -3,7 +3,7 @@ import { View, Text, ListView, TouchableHighlight, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 ///import pokemonData from '../Lib/PokemonList'
-import data from '../Lib/PokemonList'
+import allPokemonData from '../Lib/PokemonList'
 import { Images, Colors } from '../Themes'
 import ActionButton from 'react-native-action-button'
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -16,6 +16,7 @@ import AlertMessage from '../Components/AlertMessageComponent'
 import styles from './Styles/PokeListStyle'
 
 class PokeListScreen extends React.Component {
+
 
   constructor (props) {
     super(props)
@@ -36,8 +37,8 @@ class PokeListScreen extends React.Component {
     const ds = new ListView.DataSource({rowHasChanged})
     // Datasource is always in state
     this.state = {
-      pokemonData: data.data,
-      dataSource: ds.cloneWithRows(data.data),
+      pokemonData: allPokemonData.data,
+      dataSource: ds.cloneWithRows(allPokemonData.data),
       sortByAlphabetModal: false
     }
   }
@@ -77,7 +78,7 @@ class PokeListScreen extends React.Component {
 
   _openFilterModal = (params) => {
     if (params.sortType === 'alphabetical') {
-
+      this.setState({sortByAlphabetModal: true})
     } else {
       window.alert('sort by '+ params.sortType)
 
@@ -86,6 +87,18 @@ class PokeListScreen extends React.Component {
     this.setState({openModal: true})
   }
 
+
+  filterAlphabetical = (char) => {
+    console.log(allPokemonData)
+
+    // dataSource: ds.cloneWithRows(allPokemonData.data),
+    let filteredPokemons = allPokemonData.data.filter( (elem) => {
+      if (elem.name[0].toUpperCase() === char ) { return true }
+
+      return false
+    })
+    this.setState({dataSource: this.state.dataSource.cloneWithRows(filteredPokemons), sortByAlphabetModal: false})
+  }
 
   /* ***********************************************************
   * STEP 4
@@ -139,7 +152,7 @@ class PokeListScreen extends React.Component {
           </ActionButton.Item>
         </ActionButton>
 
-        <FindByAlphabetModal visible={this.state.sortByAlphabetModal} onRequestClose={this.filterAlphabetical}/>
+        <FindByAlphabetModal visible={this.state.sortByAlphabetModal} onSelection={(a) => {this.filterAlphabetical(a)}}/>
       </View>
     )
   }
