@@ -1,3 +1,5 @@
+# 0.8.1
+* search by 'type' is now possible
 # 0.8.0
 * added search by alphabet
 
