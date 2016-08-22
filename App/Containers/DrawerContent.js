@@ -83,7 +83,7 @@ class DrawerContent extends Component {
         </View>
         <View >
           <Text style={styles.copyright}>
-            Version 0.7.2
+            Version 0.8.0
           </Text>
           <Text style={styles.copyright}>
           Pokémon Go is Copyright Niantic, Inc. Pokémon, the Pokémon names, and the Pokémon images are trademarks of Nintendo.

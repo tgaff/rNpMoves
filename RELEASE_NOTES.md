@@ -1,3 +1,9 @@
+# 0.8.0
+* added search by alphabet
+
+# 0.7.2
+* fixed up versioning
+
 # 0.7.0
 
 * new Icons
