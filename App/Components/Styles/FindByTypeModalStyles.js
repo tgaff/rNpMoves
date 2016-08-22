@@ -26,7 +26,7 @@ export default {
   },
   row: {
     width: 68,
-    height: 94,
+    height: 104,
     justifyContent: 'center',
     alignItems: 'center',
     margin: Metrics.smallMargin,
@@ -36,6 +36,9 @@ export default {
 
     width: 70,
     height: 70
+  },
+  wrappingView: {
+    paddingBottom: 21
   },
 
 
