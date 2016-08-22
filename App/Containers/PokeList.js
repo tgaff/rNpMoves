@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 ///import pokemonData from '../Lib/PokemonList'
 import allPokemonData from '../Lib/PokemonList'
+  const DEFAULT_DATA = allPokemonData.data
+
 import { Images, Colors } from '../Themes'
 import ActionButton from 'react-native-action-button'
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -16,7 +18,6 @@ import AlertMessage from '../Components/AlertMessageComponent'
 import styles from './Styles/PokeListStyle'
 
 class PokeListScreen extends React.Component {
-
 
   constructor (props) {
     super(props)
@@ -38,7 +39,7 @@ class PokeListScreen extends React.Component {
     // Datasource is always in state
     this.state = {
       pokemonData: allPokemonData.data,
-      dataSource: ds.cloneWithRows(allPokemonData.data),
+      dataSource: ds.cloneWithRows(DEFAULT_DATA),
       sortByAlphabetModal: false
     }
   }
@@ -87,10 +88,14 @@ class PokeListScreen extends React.Component {
     this.setState({openModal: true})
   }
 
+  filterDefault = () => {
+    this.setState({dataSource: this.state.dataSource.cloneWithRows(DEFAULT_DATA)})
+  }
+
 
   filterAlphabetical = (char) => {
     console.log(allPokemonData)
-    let filteredPokemons = allPokemonData.data
+    let filteredPokemons = DEFAULT_DATA
 
     if (char) {
       // dataSource: ds.cloneWithRows(allPokemonData.data),
@@ -150,7 +155,7 @@ class PokeListScreen extends React.Component {
           <ActionButton.Item buttonColor='#3498db' title="Find alphabetical" onPress={()=>{this._openFilterModal({sortType: 'alphabetical'})}}>
             <Text style={styles.actionButtonMainText}>Aa</Text>
           </ActionButton.Item>
-          <ActionButton.Item buttonColor='#1abc9c' title="Sort by Pokedex number" onPress={()=>{this._openFilterModal({sortType: 'number'})} }>
+          <ActionButton.Item buttonColor='#1abc9c' title="Sort by Pokedex number" onPress={()=>{this.filterDefault()} }>
             <Text style={styles.actionButtonMainText}>#</Text>
           </ActionButton.Item>
         </ActionButton>
