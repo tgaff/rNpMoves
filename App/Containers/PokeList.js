@@ -149,9 +149,6 @@ class PokeListScreen extends React.Component {
           renderRow={this._renderRow}
         />
         <ActionButton buttonColor={Colors.charcoal} icon={searchIcon} degrees={450}>
-          <ActionButton.Item buttonColor='#9b59b6' title="Find by type" onPress={() => {this._openFilterModal({sortType: 'type'})}}>
-            <Icon name="md-flame" style={styles.actionButtonIcon} />
-          </ActionButton.Item>
           <ActionButton.Item buttonColor='#3498db' title="Find alphabetical" onPress={()=>{this._openFilterModal({sortType: 'alphabetical'})}}>
             <Text style={styles.actionButtonMainText}>Aa</Text>
           </ActionButton.Item>
