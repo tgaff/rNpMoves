@@ -76,6 +76,8 @@ class FindByAlphabetModal extends Component {
             position="center"
             buttonColor={Colors.charcoal}
             icon={closeIcon}
+            offsetY={16}
+            type='tab'
             onPress={() => { this.handlePressButton('') }}
           />
         </View>
