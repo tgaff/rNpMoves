@@ -3,8 +3,13 @@ import { View, Text, ListView, TouchableHighlight, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions as NavigationActions } from 'react-native-router-flux'
 ///import pokemonData from '../Lib/PokemonList'
-import data from '../Lib/PokemonList'
+import allPokemonData from '../Lib/PokemonList'
+  const DEFAULT_DATA = allPokemonData.data
+
 import { Images, Colors } from '../Themes'
+import ActionButton from 'react-native-action-button'
+import Icon from 'react-native-vector-icons/Ionicons'
+import FindByAlphabetModal from '../Components/FindByAlphabetModal'
 
 // For empty lists
 import AlertMessage from '../Components/AlertMessageComponent'
@@ -33,8 +38,9 @@ class PokeListScreen extends React.Component {
     const ds = new ListView.DataSource({rowHasChanged})
     // Datasource is always in state
     this.state = {
-      pokemonData: data.data,
-      dataSource: ds.cloneWithRows(data.data)
+      pokemonData: allPokemonData.data,
+      dataSource: ds.cloneWithRows(DEFAULT_DATA),
+      sortByAlphabetModal: false
     }
   }
 
@@ -50,7 +56,7 @@ class PokeListScreen extends React.Component {
     var buttonStyle = styles[rowData.type1.toLowerCase()+"Row"]
     console.log('style', buttonStyle, rowData.type1)
     return (<TouchableHighlight style={buttonStyle} onPress={ () => this.handlePressButton(rowData.id)  }>
-              <View style={{position: 'absolute', left: 0, bottom: 0, right: 0, top:0}}>
+              <View>
                 <Image style={styles.buttonImage} source={Images.pokemon[rowData.id]}>
                 <Text style={[styles.boldLabel]}>{rowData.name}</Text>
 
@@ -69,6 +75,37 @@ class PokeListScreen extends React.Component {
     // this.props.navigator.push({pokeNumber: id})
     // const {dispatch} = this.props
     // dispatch(Actions.displayMoves(id))
+  }
+
+  _openFilterModal = (params) => {
+    if (params.sortType === 'alphabetical') {
+      this.setState({sortByAlphabetModal: true})
+    } else {
+      window.alert('sort by '+ params.sortType)
+
+    }
+    this.setState({modal: params})
+    this.setState({openModal: true})
+  }
+
+  filterDefault = () => {
+    this.setState({dataSource: this.state.dataSource.cloneWithRows(DEFAULT_DATA)})
+  }
+
+
+  filterAlphabetical = (char) => {
+    console.log(allPokemonData)
+    let filteredPokemons = DEFAULT_DATA
+
+    if (char) {
+      // dataSource: ds.cloneWithRows(allPokemonData.data),
+      filteredPokemons = allPokemonData.data.filter( (elem) => {
+        if (elem.name[0].toUpperCase() === char ) { return true }
+        return false
+      })
+    }
+    this.setState({sortByAlphabetModal: false})
+    this.setState({dataSource: this.state.dataSource.cloneWithRows(filteredPokemons)})
   }
 
   /* ***********************************************************
@@ -99,6 +136,8 @@ class PokeListScreen extends React.Component {
   }
 
   render () {
+    const searchIcon = (<Icon name="ios-search" size={30} color={Colors.snow} />)
+
     return (
       <View style={styles.container}>
         <AlertMessage title='Nothing to See Here, Move Along' show={this._noRowData()} />
@@ -109,6 +148,16 @@ class PokeListScreen extends React.Component {
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
         />
+        <ActionButton buttonColor={Colors.charcoal} icon={searchIcon} degrees={450}>
+          <ActionButton.Item buttonColor='#3498db' title="Find alphabetical" onPress={()=>{this._openFilterModal({sortType: 'alphabetical'})}}>
+            <Text style={styles.actionButtonMainText}>Aa</Text>
+          </ActionButton.Item>
+          <ActionButton.Item buttonColor='#1abc9c' title="Sort by Pokedex number" onPress={()=>{this.filterDefault()} }>
+            <Text style={styles.actionButtonMainText}>#</Text>
+          </ActionButton.Item>
+        </ActionButton>
+
+        <FindByAlphabetModal visible={this.state.sortByAlphabetModal} onSelection={(a) => {this.filterAlphabetical(a)}}/>
       </View>
     )
   }

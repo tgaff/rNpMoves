@@ -38,7 +38,20 @@ const styles = {
   },
   buttomImage: {
     //FIXME: move the currently hard-coded style into here
+  },
+  actionButtonIcon: {
+    fontSize: 20,
+    height: 22,
+    color: 'white',
+  },
+  actionButtonMainText: {
+    color: Colors.snow,
+    fontSize: 24,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    marginBottom: 4
   }
+
 }
 
 // Generate specific row styles for each 'type'

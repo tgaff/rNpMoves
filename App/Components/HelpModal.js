@@ -28,26 +28,17 @@ class HelpModal extends Component {
   _closeModal = () => {
 
     if ( this.props.onRequestClose ) { this.props.onRequestClose() }
-    this.setState({openModal: false});
+    this.setState({openModal: false}); // FIXME - likely a bug, this is controlled by PARENT
   }
 
-  // _open = () => {
-  //   this.setState({openModal: true});
-  // }
 
   componentWillReceiveProps = (newProps) => {
-    //newState = Object.assign({}, this.state)
-    //debugger
     let newState = {
       title: newProps.title,
       body: newProps.body,
       onRequstClose: newProps.onRequestClose,
       openModal: newProps.openModal
     }
-    // (newProps.styles) && (newState.styles = newProps.styles) // only if passed
-    // newProps.onRequestClose && (newState.onRequestClose = newProps.onRequestClose)
-    // finally, display it
-
     this.setState(newState)
   }
   render () {

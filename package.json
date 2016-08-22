@@ -26,6 +26,7 @@
     "ramda": "^0.21.0",
     "react": "^15.1.0",
     "react-native": "^0.30.0",
+    "react-native-action-button": "^1.1.11",
     "react-native-animatable": "^0.6.0",
     "react-native-device-info": "^0.9.3",
     "react-native-drawer": "^2.2.6",
