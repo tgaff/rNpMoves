@@ -4,6 +4,8 @@ import styles from './Styles/DrawerContentStyle'
 import { Images } from '../Themes'
 import DrawerButton from '../Components/DrawerButton'
 import { Actions as NavigationActions } from 'react-native-router-flux'
+const VERSION_NUMBER = require('../../package.json').version
+
 
 class DrawerContent extends Component {
 
@@ -83,7 +85,7 @@ class DrawerContent extends Component {
         </View>
         <View >
           <Text style={styles.copyright}>
-            Version 0.8.0
+            Version {VERSION_NUMBER}
           </Text>
           <Text style={styles.copyright}>
           Pokémon Go is Copyright Niantic, Inc. Pokémon, the Pokémon names, and the Pokémon images are trademarks of Nintendo.
