@@ -10,6 +10,7 @@ import { Images, Colors } from '../Themes'
 import ActionButton from 'react-native-action-button'
 import Icon from 'react-native-vector-icons/Ionicons'
 import FindByAlphabetModal from '../Components/FindByAlphabetModal'
+import FindByTypeModal from '../Components/FindByTypeModal'
 
 // For empty lists
 import AlertMessage from '../Components/AlertMessageComponent'
@@ -40,7 +41,8 @@ class PokeListScreen extends React.Component {
     this.state = {
       pokemonData: allPokemonData.data,
       dataSource: ds.cloneWithRows(DEFAULT_DATA),
-      sortByAlphabetModal: false
+      sortByAlphabetModal: false,
+      sortByTypeModal: false
     }
   }
 
@@ -80,12 +82,11 @@ class PokeListScreen extends React.Component {
   _openFilterModal = (params) => {
     if (params.sortType === 'alphabetical') {
       this.setState({sortByAlphabetModal: true})
-    } else {
-      window.alert('sort by '+ params.sortType)
-
+    } else if (params.sortType === 'type') {
+      this.setState({sortByTypeModal: true})
     }
-    this.setState({modal: params})
-    this.setState({openModal: true})
+    // this.setState({modal: params})
+    // this.setState({openModal: true})
   }
 
   filterDefault = () => {
@@ -94,7 +95,6 @@ class PokeListScreen extends React.Component {
 
 
   filterAlphabetical = (char) => {
-    console.log(allPokemonData)
     let filteredPokemons = DEFAULT_DATA
 
     if (char) {
@@ -107,6 +107,23 @@ class PokeListScreen extends React.Component {
     this.setState({sortByAlphabetModal: false})
     this.setState({dataSource: this.state.dataSource.cloneWithRows(filteredPokemons)})
   }
+
+
+    filterType = (typeName) => {
+      console.log(allPokemonData)
+      let filteredPokemons = DEFAULT_DATA
+
+      if (typeName) {
+        // dataSource: ds.cloneWithRows(allPokemonData.data),
+        filteredPokemons = allPokemonData.data.filter( (elem) => {
+          if (elem.type1.toUpperCase() === typeName || elem.type2.toUpperCase() === typeName ) { return true }
+          return false
+        })
+      }
+      this.setState({sortByTypeModal: false})
+      this.setState({dataSource: this.state.dataSource.cloneWithRows(filteredPokemons)})
+    }
+
 
   /* ***********************************************************
   * STEP 4
@@ -149,6 +166,9 @@ class PokeListScreen extends React.Component {
           renderRow={this._renderRow}
         />
         <ActionButton buttonColor={Colors.charcoal} icon={searchIcon} degrees={450}>
+          <ActionButton.Item buttonColor='#9b59b6' title="Find by type" onPress={() => {this._openFilterModal({sortType: 'type'})}}>
+            <Icon name="md-flame" style={styles.actionButtonIcon} />
+          </ActionButton.Item>
           <ActionButton.Item buttonColor='#3498db' title="Find alphabetical" onPress={()=>{this._openFilterModal({sortType: 'alphabetical'})}}>
             <Text style={styles.actionButtonMainText}>Aa</Text>
           </ActionButton.Item>
@@ -158,6 +178,8 @@ class PokeListScreen extends React.Component {
         </ActionButton>
 
         <FindByAlphabetModal visible={this.state.sortByAlphabetModal} onSelection={(a) => {this.filterAlphabetical(a)}}/>
+        <FindByTypeModal visible={this.state.sortByTypeModal} onSelection={(a) => {this.filterType(t)}}/>
+
       </View>
     )
   }
