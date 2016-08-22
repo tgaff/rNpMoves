@@ -99,30 +99,27 @@ class PokeListScreen extends React.Component {
 
     if (char) {
       // dataSource: ds.cloneWithRows(allPokemonData.data),
-      filteredPokemons = allPokemonData.data.filter( (elem) => {
+      filteredPokemons = DEFAULT_DATA.filter( (elem) => {
         if (elem.name[0].toUpperCase() === char ) { return true }
         return false
       })
     }
-    this.setState({sortByAlphabetModal: false})
-    this.setState({dataSource: this.state.dataSource.cloneWithRows(filteredPokemons)})
+    this.setState({sortByAlphabetModal: false, dataSource: this.state.dataSource.cloneWithRows(filteredPokemons)})
   }
 
 
-    filterType = (typeName) => {
-      console.log(allPokemonData)
-      let filteredPokemons = DEFAULT_DATA
+  filterByType = (typeName) => {
+    let filteredPokemons = DEFAULT_DATA
 
-      if (typeName) {
-        // dataSource: ds.cloneWithRows(allPokemonData.data),
-        filteredPokemons = allPokemonData.data.filter( (elem) => {
-          if (elem.type1.toUpperCase() === typeName || elem.type2.toUpperCase() === typeName ) { return true }
-          return false
-        })
-      }
-      this.setState({sortByTypeModal: false})
-      this.setState({dataSource: this.state.dataSource.cloneWithRows(filteredPokemons)})
+    if (typeName) {
+      // dataSource: ds.cloneWithRows(allPokemonData.data),
+      filteredPokemons = DEFAULT_DATA.filter( (elem) => {
+        if (elem.type1.toLowerCase() === typeName || elem.type2.toLowerCase() === typeName ) { return true }
+        return false
+      })
     }
+    this.setState({sortByTypeModal: false, dataSource: this.state.dataSource.cloneWithRows(filteredPokemons)})
+  }
 
 
   /* ***********************************************************
@@ -177,8 +174,8 @@ class PokeListScreen extends React.Component {
           </ActionButton.Item>
         </ActionButton>
 
-        <FindByAlphabetModal visible={this.state.sortByAlphabetModal} onSelection={(a) => {this.filterAlphabetical(a)}}/>
-        <FindByTypeModal visible={this.state.sortByTypeModal} onSelection={(a) => {this.filterType(t)}}/>
+        <FindByAlphabetModal visible={this.state.sortByAlphabetModal} onSelection={(char) => {this.filterAlphabetical(char)}}/>
+        <FindByTypeModal visible={this.state.sortByTypeModal} onSelection={(typeName) => {this.filterByType(typeName)}}/>
 
       </View>
     )

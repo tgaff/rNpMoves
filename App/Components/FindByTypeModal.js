@@ -40,18 +40,18 @@ class FindByTypeModal extends Component {
   }
 
   _renderRow = (typeName) => {
-    return (<TouchableHighlight onPress={ () => this.handlePressButton(typeName) } style={styles.row}>
+    return (<TouchableOpacity onPress={ () => this.handlePressButton(typeName) } style={styles.row}>
               <View style={styles.wrappingView}>
                 <Image source={Images.types[typeName]} style={styles.buttonImage}>
                 </Image>
                 <Text style={[styles.buttonLabel]}>{typeName}</Text>
               </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
           )
   }
 
-  handlePressButton = (character) => {
-    this.props.onSelection(character)
+  handlePressButton = (param) => {
+    this.props.onSelection(param)
   }
 
   componentWillReceiveProps = (newProps) => {
@@ -71,7 +71,7 @@ class FindByTypeModal extends Component {
           <Text>{this.state.openModal}</Text>
           <ListView
             initialListSize={18}
-            pageSize={12}
+            pageSize={18}
             contentContainerStyle={styles.listContent}
             dataSource={this.state.dataSource}
             renderRow={this._renderRow}
@@ -80,6 +80,8 @@ class FindByTypeModal extends Component {
             position="center"
             buttonColor={Colors.charcoal}
             icon={closeIcon}
+            offsetY={16}
+            type='tab'
             onPress={() => { this.handlePressButton(null) }}
           />
         </View>
