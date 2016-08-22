@@ -1,3 +1,6 @@
+# 0.8.2
+* remove unneeded permissions
+* fix internal app name
 # 0.8.1
 * search by 'type' is now possible
 # 0.8.0
