@@ -92,6 +92,10 @@ class DrawerContent extends Component {
           <Text style={styles.copyright}>
             Data for this app is also available at <Text style={styles.link}>bulbapedia.bulbagarden.net</Text>  See more there and help to maintain the Bulbapedia!
           </Text>
+          <Text style={styles.copyright}>
+            Thanks to @falke2009 on deviantart for Pokémon type images. <Text style={styles.link}>https://falke2009.deviantart.com/</Text>
+          </Text>
+
         </View>
       </ScrollView>
     )

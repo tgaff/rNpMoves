@@ -8,6 +8,7 @@
 // }
 
 import pokemon from './CharacterImages'
+import types from './TypeImages'
 
 
 const images = {
@@ -16,7 +17,8 @@ const images = {
   ignite: require('../Images/ignite_logo.png'),
   tile_bg: require('../Images/tile_bg.png'),
   background: require('../Images/BG.png'),
-  pokemon: pokemon
+  pokemon: pokemon,
+  types: types
 }
 
 export default images
