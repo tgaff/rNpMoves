@@ -15,30 +15,28 @@ export default {
     flexWrap: 'wrap'
   },
 
-  alphaChar: {
-    // fontWeight: 'bold',
+  buttonLabel: {
+    fontWeight: 'bold',
 //    alignSelf: 'center',
     color: Colors.snow,
-    // top: 78,
     textAlign: 'center',
-    textAlignVertical: 'center',
-    // marginBottom: Metrics.smallMargin,
-    fontSize: 24
+    textAlignVertical: 'bottom',
+    fontSize: 16
 
   },
   row: {
-    width: 60,
-    height: 60,
+    width: 68,
+    height: 94,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: Metrics.baseMargin,
+    margin: Metrics.smallMargin,
   //  backgroundColor: Colors.drawer,
-    borderRadius: 10,
-    borderColor: Colors.snow,
-    borderStyle: 'solid',
-    borderWidth: 1
   },
+  buttonImage: {
 
+    width: 70,
+    height: 70
+  },
 
 
 

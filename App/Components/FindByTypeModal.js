@@ -39,10 +39,12 @@ class FindByTypeModal extends Component {
     visible: React.PropTypes.bool
   }
 
-  _renderRow = (rowData) => {
-    return (<TouchableHighlight onPress={ () => this.handlePressButton(rowData) } style={styles.row}>
-              <View >
-                <Image style={[styles.alphaChar]}>{typeImage}</Image>
+  _renderRow = (typeName) => {
+    return (<TouchableHighlight onPress={ () => this.handlePressButton(typeName) } style={styles.row}>
+              <View styles={{}}>
+                <Image source={Images.types[typeName]} style={styles.buttonImage}>
+                </Image>
+                <Text style={[styles.buttonLabel]}>{typeName}</Text>
               </View>
             </TouchableHighlight>
           )

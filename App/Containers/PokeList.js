@@ -59,7 +59,7 @@ class PokeListScreen extends React.Component {
     console.log('style', buttonStyle, rowData.type1)
     return (<TouchableHighlight style={buttonStyle} onPress={ () => this.handlePressButton(rowData.id)  }>
               <View>
-                <Image style={styles.buttonImage} source={Images.pokemon[rowData.id]}>
+                <Image source={Images.pokemon[rowData.id]}>
                 <Text style={[styles.boldLabel]}>{rowData.name}</Text>
 
                 </Image>

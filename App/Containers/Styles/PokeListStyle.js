@@ -36,9 +36,6 @@ const styles = {
     flexDirection: 'row',
     flexWrap: 'wrap'
   },
-  buttomImage: {
-    //FIXME: move the currently hard-coded style into here
-  },
   actionButtonIcon: {
     fontSize: 20,
     height: 22,
