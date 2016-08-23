@@ -1,3 +1,6 @@
+# 0.8.3
+* fixed a crash on Beedrill and others that had X-Scissor as a move
+
 # 0.8.2
 * remove unneeded permissions
 * fix internal app name
