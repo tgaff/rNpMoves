@@ -1,11 +1,17 @@
+# 0.9.0
+* type is now listed for moves
+* type icons are shown
+
 # 0.8.3
 * fixed a crash on Beedrill and others that had X-Scissor as a move
 
 # 0.8.2
 * remove unneeded permissions
 * fix internal app name
+
 # 0.8.1
 * search by 'type' is now possible
+
 # 0.8.0
 * added search by alphabet
 
