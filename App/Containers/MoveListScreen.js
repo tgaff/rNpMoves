@@ -85,10 +85,14 @@ class MoveListScreen extends React.Component {
       +`so instead of 10 Damage it's 12.5 damage!  Dragon Claw doesn't get a bonus because Charizard is not a Dragon type.`
       this._openHelpModal({body: message, title: 'Help: Move Type'})
 
+    },
+    thisType: (typeName) => {
+      let message =
+      `This move is a ${typeName.toUpperCase()} type move.`
+      +`\n\nTouch the 'TYPE' header for more information on move types.`
+      this._openHelpModal({body: message, title: typeName})
+
     }
-
-
-
 
   }
   _renderHeader = () => {
@@ -121,7 +125,10 @@ class MoveListScreen extends React.Component {
   _renderRow = (rowData) => {
     return (
       <View key={rowData.id} style={styles.row}>
-        <View style={{flex: 1}}><Image source={Images.types[rowData.type]} style={styles.colImage} /></View>
+        <TouchableOpacity style={[ {flex: 1}]} onPress={ () => {this.help.thisType(rowData.type)} } >
+          <Image source={Images.types[rowData.type]} style={styles.colImage} />
+        </TouchableOpacity>
+
         <Text selectable={true} style={[styles.col, {flex: 4}]}>{rowData.name}</Text>
         <Text selectable={true} style={styles.col}>{rowData.damage}</Text>
         <Text selectable={true} style={styles.col}>{this._dpsFormat(rowData.dps)}</Text>
