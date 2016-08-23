@@ -67,7 +67,7 @@ oldMoves[94]={"Name":"Bone Club","Speed":"Charge","Type":"Ground","Power":20,"Du
 oldMoves[95]={"Name":"Bulldoze","Speed":"Charge","Type":"Ground","Power":30,"DurationMs":3400,"DPS":8.823529412};
 oldMoves[96]={"Name":"Mud Bomb","Speed":"Charge","Type":"Ground","Power":25,"DurationMs":2600,"DPS":9.615384615};
 oldMoves[99]={"Name":"Signal Beam","Speed":"Charge","Type":"Bug","Power":35,"DurationMs":3100,"DPS":11.29032258};
-oldMoves[100]={"Name":"X Scissor","Speed":"Charge","Type":"Bug","Power":30,"DurationMs":2100,"DPS":14.28571429};
+oldMoves[100]={"Name":"X-Scissor","Speed":"Charge","Type":"Bug","Power":30,"DurationMs":2100,"DPS":14.28571429};
 oldMoves[101]={"Name":"Flame Charge","Speed":"Charge","Type":"Fire","Power":20,"DurationMs":3100,"DPS":6.451612903};
 oldMoves[102]={"Name":"Flame Burst","Speed":"Charge","Type":"Fire","Power":25,"DurationMs":2100,"DPS":11.9047619};
 oldMoves[103]={"Name":"Fire Blast","Speed":"Charge","Type":"Fire","Power":60,"DurationMs":4100,"DPS":14.63414634};
@@ -154,6 +154,7 @@ oldMoves[241]={"Name":"Rock Smash","Speed":"Fast","Type":"Fighting","Power":5,"D
 const cleanedPokeData = pokemonData.map(function(mon) {
   let quickMoves = mon.QuickMoves.map(function(moveId) {
     let move = oldMoves[moveId]
+
     return {
       name: move.Name,
       type: move.Type
@@ -177,5 +178,19 @@ const cleanedPokeData = pokemonData.map(function(mon) {
     powerMoves: powerMoves
   }
 })
-console.log(cleanedPokeData[3])
+
+
+/* *********************************************
+/ testing moves data
+*/////////////////////////////////////
+// import * as MoveModel from './MoveData'
+// oldMoves.forEach( (move) => {
+//   if (MoveModel.lookupQuickMoveInfoByName(move.Name) || MoveModel.lookupPowerMoveInfoByName(move.Name)) {
+//     return true
+//   }
+//   console.log('WARNING! missing move: ' + move.Name)
+//
+// })
+
+
 export default {data: cleanedPokeData}

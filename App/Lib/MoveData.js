@@ -5,7 +5,6 @@ const POWER_MOVES = allMoves.powerMoves
 
 function lookupMoveInfoByName(moveName, moveSet) {
   moveName = moveName.toLowerCase()
-  console.log(POWER_MOVES)
   return moveSet[moveName]
 }
 export function lookupQuickMoveInfoByName(moveName) { return lookupMoveInfoByName(moveName, QUICK_MOVES)}

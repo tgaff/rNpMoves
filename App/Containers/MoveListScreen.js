@@ -103,13 +103,10 @@ class MoveListScreen extends React.Component {
 
   _renderTable =  (rows) => {
     return rows.map( (row)=> {
-      console.log("render row", row)
-
       return this._renderRow(row)
     })
   }
   _renderRow = (rowData) => {
-    console.log('row', rowData)
     return (
       <View key={rowData.id} style={styles.row}>
         <Text selectable={true} style={[styles.col, {flex: 2}]}>{rowData.name}</Text>
@@ -127,7 +124,7 @@ class MoveListScreen extends React.Component {
     })
     myQuickMoveInfo = this._sortMovesByDPS(myQuickMoveInfo)
 
-    console.log('I have powermoves: ',this.props.data.subdata.quickMoves)
+    console.log('I have powermoves: ',this.props.data.subdata.powerMoves)
     myPowerMoveInfo = this.props.data.subdata.powerMoves.map(function(move) {
       return MoveModel.lookupPowerMoveInfoByName(move.name)
 
@@ -162,7 +159,6 @@ class MoveListScreen extends React.Component {
     const moves = this._findMonMoves()
 
 
-    console.log('new style using', type1, generateStyles(type1))
     const containerStyle = generateStyles(type1).container
     return (
       <ScrollView style={containerStyle}>
@@ -208,9 +204,6 @@ class MoveListScreen extends React.Component {
 
 // map state passed through as part of state
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps')
-  console.log(state)
-
   return { }
 }
 
