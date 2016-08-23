@@ -76,6 +76,15 @@ class MoveListScreen extends React.Component {
 
       this._openHelpModal({body: message, title: 'Help: Duration'})
 
+    },
+    type: () => {
+      let message =
+      `Moves that match the Pokemon's type receive a Same Type Attack Bonus (or STAB) of 25%.`
+      +`\n\nDamage listed here does not include the STAB value.  Make sure to compare the attack type and the Pokemon type.`
+      +`\n\nExample: Charizard is a Fire/Flying type.  It's move "Ember" will be 25% more powerful than the listed value, `
+      +`so instead of 10 Damage it's 12.5 damage!  Dragon Claw doesn't get a bonus because Charizard is not a Dragon type.`
+      this._openHelpModal({body: message, title: 'Help: Move Type'})
+
     }
 
 
@@ -85,7 +94,10 @@ class MoveListScreen extends React.Component {
   _renderHeader = () => {
     return (
       <View style={[styles.headerRow]}>
-        <TouchableOpacity style={[styles.headerButton, {flex: 2}]} onPress={this.help.attackName}>
+        <TouchableOpacity style={[styles.headerButton, {flex: 1}]} onPress={this.help.type}>
+          <Text style={styles.headerText}>TYPE</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.headerButton, {flex: 4}]} onPress={this.help.attackName}>
           <Text selectable={true} style={[styles.headerText, ]}>ATTACK NAME</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.headerButton]} onPress={this.help.damage}>
@@ -109,7 +121,8 @@ class MoveListScreen extends React.Component {
   _renderRow = (rowData) => {
     return (
       <View key={rowData.id} style={styles.row}>
-        <Text selectable={true} style={[styles.col, {flex: 2}]}>{rowData.name}</Text>
+        <View style={{flex: 1}}><Image source={Images.types[rowData.type]} style={styles.colImage} /></View>
+        <Text selectable={true} style={[styles.col, {flex: 4}]}>{rowData.name}</Text>
         <Text selectable={true} style={styles.col}>{rowData.damage}</Text>
         <Text selectable={true} style={styles.col}>{this._dpsFormat(rowData.dps)}</Text>
         <Text selectable={true} style={styles.col}>{rowData.duration}</Text>

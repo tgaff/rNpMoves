@@ -16,7 +16,7 @@ export default StyleSheet.create({
 
   },
   headerButton: {
-    flex: 1,
+    flex: 2,
 
   },
   headerText: {
@@ -36,12 +36,17 @@ export default StyleSheet.create({
   },
 
   col:{
-    flex: 1,
+    flex: 2,
     color: Colors.snow,
   },
   row: {
     flexDirection: 'row',
     margin: Metrics.baseMargin,
+  },
+  colImage: {
+    // flex: 1,
+    height: 24,
+    width: 24
   },
   listContent: {
     // justifyContent: 'space-around',
