@@ -175,9 +175,10 @@ class MoveListScreen extends React.Component {
     const id = this.props.data.subdata.id
     const type1 = this.props.data.subdata.type1
     const type2 = this.props.data.subdata.type2
+    const type1Image = Images.types[type1.toLowerCase()]
+    const type2Image = (type2 == 'None' ? Images.empty : Images.types[type2.toLowerCase()])
 
     const moves = this._findMonMoves()
-
 
     const containerStyle = generateStyles(type1).container
     return (
@@ -191,8 +192,14 @@ class MoveListScreen extends React.Component {
           <View style={{ flex: 1}}>
             <Text style={styles.sectionHeader} selectable={true}>{name}</Text>
             <View style={ styles.monTypeView }>
-              <Text style={styles.monTypeText} selectable={true}>{type1}</Text>
-              <Text style={styles.monTypeText} selectable={true}>{type2}</Text>
+              <View style={{    flexDirection: 'row', flex: 1,     alignItems: 'center'}}>
+                <Image source={type1Image} style={styles.monTypeImage} />
+                <Text style={styles.monTypeText} selectable={true}>{type1}</Text>
+                </View>
+              <View style={{    flexDirection: 'row', flex: 1 ,   alignItems: 'center'}}>
+                <Image source={type2Image} style={styles.monTypeImage} />
+                <Text style={styles.monTypeText} selectable={true}>{type2}</Text>
+              </View>
             </View>
           </View>
 

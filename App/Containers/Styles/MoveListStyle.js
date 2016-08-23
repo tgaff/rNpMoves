@@ -94,6 +94,11 @@ export default StyleSheet.create({
     color: Colors.coal,
     textAlignVertical: 'center',
     borderWidth: 1
+  },
+  monTypeImage: {
+    height: 20,
+    width: 20,
+    marginLeft: 14
   }
 
 })

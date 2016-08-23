@@ -18,7 +18,8 @@ const images = {
   tile_bg: require('../Images/tile_bg.png'),
   background: require('../Images/BG.png'),
   pokemon: pokemon,
-  types: types
+  types: types,
+  empty: require('../Images/1x1_gamma.png')
 }
 
 export default images
