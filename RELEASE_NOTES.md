@@ -1,3 +1,7 @@
+# 0.9.1
+
+* update react-native
+* fixes back button closing app (except in pull out menu)
 # 0.9.0
 * type is now listed for moves
 * type icons are shown
