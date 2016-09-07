@@ -1,3 +1,6 @@
+# 0.9.2
+
+* fix another react permission error
 # 0.9.1
 
 * update react-native
